@@ -1,0 +1,19 @@
+extends ../layouts/default
+
+block content
+  ul.list-unstyled.content
+    li
+      img(src= '/images/homepageupdates/' + selectedUpdate.image.filename)
+      h3= selectedUpdate.title
+      p!= selectedUpdate.content
+
+block sidebar
+  ul.list-unstyled.sidebar
+    each update in updates
+      li
+        a(href='/updates/' + update.slug)
+          .col-xs-6
+            i= update.type + ':'
+            h4= update.title
+          .col-xs-6
+            img(src= '/images/homepageupdates/' + update.image.filename)

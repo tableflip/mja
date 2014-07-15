@@ -1,0 +1,99 @@
+// Bootstrap
+// =========
+
+// You can include less bootstrap components if you like by
+// importing the .less files you want directly, instead of
+// the main bootstrap/bootstrap.less file.
+//
+// Bootstrap can be removed entirely by deleting this line.
+
+@import "bootstrap/bootstrap.less";
+
+// The easiest way to customise Bootstrap variables while
+// being able to easily override the source files with new
+// versions is to override the ones you want in another file.
+//
+// You can also add your own custom variables to this file for
+// use in your site stylesheets.
+
+@import "site/variables.less";
+
+
+// Site Styles
+// ===========
+
+// Add your own site style includes here
+@import "site/layout.less";
+
+a {
+  color: @text-color;
+}
+
+
+body {
+  margin: 20px auto;
+  position: fixed;
+  height: 100%;
+}
+
+.brand {
+  display: block;
+  width: 100%;
+  height: 25px;
+  text-align: left;
+  text-indent: -9999px;
+  background: url(../images/mja-logo.png) no-repeat;
+  background-size: 100% auto;
+}
+
+.col-left {
+  overflow: hidden;
+  height: 100%;
+  ul {
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+  }
+}
+
+.col-left {
+  border-right: 2px solid rgb(181,0,0);
+}
+
+.navbar {
+  background: none;
+  border: none;
+}
+
+a.scrollUp, a.scrollDown {
+  display: block;
+  float: right;
+  width:45px;
+  height:30px;
+  margin: 15px;
+}
+
+a.scrollUp {
+  background: url('../images/arrow-up.png') no-repeat;
+  background-size: 100% auto;
+}
+
+a.scrollDown {
+  background: url('../images/arrow-down.png') no-repeat;
+  background-size: 100% auto;
+}
+
+.sidebar {
+  li {
+    height: 100px;
+    margin-bottom: 15px;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+}
+
+.content img {
+  max-width: 100%;
+}
