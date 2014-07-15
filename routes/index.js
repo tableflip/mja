@@ -17,6 +17,9 @@ exports = module.exports = function (app) {
 	
 	// Views
 	app.get('/', routes.views.index);
+  app.get('/projects', routes.views.projects);
+  app.get('/profile', routes.views.profile);
+  app.get('/clients', routes.views.clients);
 	app.get('/updates/:slug', routes.views.homepageupdate);
 	
 }
