@@ -1,0 +1,13 @@
+extends ../layouts/default-with-galleria
+
+block content
+  .project
+    .galleria
+      each image in project.images
+        a(href='/images/projects/thumb/'+image.filename)
+        img(src='/images/projects/large/'+image.filename)
+
+block sidebar
+  .project-category-blurb
+    h3.capitalize= project.category.title
+    p= project.category.description

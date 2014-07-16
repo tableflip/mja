@@ -25,14 +25,10 @@
 // Add your own site style includes here
 @import "site/layout.less";
 
-a {
-  color: @text-color;
-}
-
-
 body {
   margin: 20px auto;
   position: fixed;
+  width: 100%;
   height: 100%;
 }
 
@@ -58,6 +54,18 @@ body {
 
 .col-left {
   border-right: 2px solid rgb(181,0,0);
+}
+
+.gallery .col-right {
+  height: 100%;
+  .project {
+    width: 100%;
+    height: 100%;
+    .galleria {
+      width: 100%;
+      height: 80%;
+    }
+  }
 }
 
 .navbar {
@@ -96,4 +104,16 @@ a.scrollDown {
 
 .content img {
   max-width: 100%;
+}
+
+/*
+* Typography
+*/
+
+a {
+  color: @text-color;
+}
+
+.capitalize::first-letter {
+  text-transform:uppercase;
 }

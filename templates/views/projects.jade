@@ -1,0 +1,14 @@
+extends ../layouts/default
+
+block content
+  .projects
+    ul.list-unstyled.content
+      each project in projects
+        li: a(href= '/projects/' + category.slug + '/' + project.slug)
+          img(src= '/images/projects/thumb/' + project.images[0].filename)
+          h3= project.title
+
+block sidebar
+  .project-category-blurb
+    h3.capitalize= category.title
+    p= category.description
