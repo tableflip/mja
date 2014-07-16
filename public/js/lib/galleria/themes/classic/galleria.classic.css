@@ -5,7 +5,7 @@
 .galleria-container {
     position: relative;
     overflow: hidden;
-    background: #000;
+    background: transparent;
 }
 .galleria-container img {
     -moz-user-select: none;
@@ -35,9 +35,9 @@
 .galleria-thumbnails .galleria-image {
     height: 40px;
     width: 60px;
-    background: #000;
+    background: transparent;
     margin: 0 5px 0 0;
-    border: 1px solid #000;
+    border: 1px solid transparent;
     float: left;
     cursor: pointer;
 }
@@ -51,7 +51,7 @@
     z-index: 1;
 }
 .galleria-loader {
-    background: #000;
+    background: transparent;
     width: 20px;
     height: 20px;
     position: absolute;
@@ -69,7 +69,7 @@
     position: absolute;
 }
 .galleria-info-text {
-    background-color: #000;
+    background-color: transparent;
     padding: 12px;
     display: none;
     /* IE7 */ zoom:1;
@@ -113,7 +113,7 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
-    background-color: #000;
+    background-color: transparent;
 }
 .notouch .galleria-info-link:hover {
     opacity: 1;

@@ -14,3 +14,7 @@ npm-debug.log
 node_modules
 
 .DS_Store
+
+public/images/homepageupdates
+public/images/projectcategories
+public/images/projects

@@ -6,7 +6,7 @@ block content
       each category in categories
         li: a(href= '/projects/' + category.slug)
           img(src= '/images/projectCategories/thumb/' + category.image.filename)
-          h3= category.title
+          h4.capitalize= category.title
 
 block sidebar
   if (page)

@@ -25,6 +25,9 @@
 // Add your own site style includes here
 @import "site/layout.less";
 
+/*
+* Site wide
+*/
 body {
   margin: 20px auto;
   width: 100%;
@@ -45,6 +48,10 @@ body {
   overflow: hidden;
   position: fixed;
   height: 100%;
+  border-right: 2px solid rgb(181,0,0);
+  header {
+    margin-bottom: 40px;
+  }
   ul {
     width: 100%;
     height: 70%;
@@ -52,49 +59,28 @@ body {
   }
 }
 
-.gallery {
-  position: fixed;
-
-  .col-left {
-    position: relative;
-  }
-}
-
-.col-left {
-  border-right: 2px solid rgb(181,0,0);
-
-  header {
-    margin-bottom: 40px;
-  }
-}
-
 .navbar-nav > li > a {
   padding-top: 0;
-}
-
-.home .col-left header {
-  margin-bottom: 25px;
 }
 
 .col-right .content {
   margin-left: 15px;
 }
 
-.gallery .col-right {
-  height: 100%;
-  .project {
-    width: 100%;
-    height: 100%;
-    .galleria {
-      width: 100%;
-      height: 80%;
-    }
-  }
-}
-
 .navbar {
   background: none;
   border: none;
+}
+
+.content img {
+  max-width: 100%;
+}
+
+/*
+* Home
+*/
+.home .col-left header {
+  margin-bottom: 25px;
 }
 
 a.scrollUp, a.scrollDown {
@@ -126,8 +112,34 @@ a.scrollDown {
   }
 }
 
-.content img {
-  max-width: 100%;
+/*
+* Project categories
+*/
+.project-categories > ul> li {
+  display: inline-block;
+  width: 32%;
+}
+
+/*
+* Project gallery
+*/
+.gallery {
+  position: fixed;
+  .col-left {
+    position: relative;
+  }
+}
+
+.gallery .col-right {
+  height: 100%;
+  .project {
+    width: 100%;
+    height: 100%;
+    .galleria {
+      width: 100%;
+      height: 80%;
+    }
+  }
 }
 
 /*
