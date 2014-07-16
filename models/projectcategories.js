@@ -16,7 +16,7 @@ ProjectCategory.add({
     lowercase: true,
     trim: true
   },
-  blurb: {
+  description: {
     type: String,
     initial: true
   },

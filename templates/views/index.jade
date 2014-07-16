@@ -2,7 +2,7 @@ extends ../layouts/default
 
 block content
   ul.list-unstyled.content
-    each update in updates.slice(0,1)
+    each update in updates
       li
         img(src= '/images/homepageupdates/large/' + update.image.filename)
         h3= update.title

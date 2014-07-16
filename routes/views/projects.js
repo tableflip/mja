@@ -15,8 +15,6 @@ exports = module.exports = function(req, res) {
   .where({title: categoryTitle})
   .exec(function (err, category) {
 
-    console.log(category)
-
     Project.model.find()
     .where({'category': category})
     .sort({'publishedDate': '-1'})
