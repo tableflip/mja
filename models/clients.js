@@ -4,20 +4,20 @@ var path = require('path')
 var async = require('async')
 var Types = keystone.Field.Types
 
-var Page = new keystone.List('Page',
+var Client = new keystone.List('Client',
   { autokey: { path: 'slug', from: 'title', unique: true } }
 );
 
-Page.add({
-  title: {
+Client.add({
+  name: {
     type: String,
     required: true,
     initial: true
   },
-  blurb: {
-    type: String,
-    initial: true
+  category: {
+    type: Types.Relationship,
+    ref: 'ClientCategory'
   }
 })
 
-Page.register();
+Client.register();

@@ -4,32 +4,35 @@ var path = require('path')
 var async = require('async')
 var Types = keystone.Field.Types
 
-var ProjectCategory = new keystone.List('ProjectCategory',
+var ProfilePage = new keystone.List('ProfilePage',
   { autokey: { path: 'slug', from: 'title', unique: true } }
 );
 
-ProjectCategory.add({
+ProfilePage.add({
   title: {
     type: String,
     required: true,
     initial: true
   },
-  description: {
+  blurb: {
     type: String,
     initial: true
   },
-  published: {
-    type: Boolean,
-    'default': false
-  },
   image: {
     type: Types.LocalFile,
-    dest: __dirname + '/../public/images/projectcategories/original',
+    dest: __dirname + '/../public/images/profilepages/original',
     post: { move: resizeImage }
+  },
+  content: {
+    type: Types.Html,
+    wysiwyg: true,
+    height: 500,
+    initial: true,
+    required: true
   }
 })
 
-ProjectCategory.register();
+ProfilePage.register();
 
 function resizeImage (update, request, fileData, next) {
   var srcPath = path.join(fileData.path, fileData.filename)

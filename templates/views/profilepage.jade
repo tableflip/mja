@@ -1,0 +1,10 @@
+extends ../layouts/default
+
+block content
+  .content
+    img(src= '/images/profilepages/large/' + page.image.filename)
+    p!= page.content
+
+block sidebar
+  .page-blurb
+    h2= page.title

@@ -1,0 +1,15 @@
+extends ../layouts/default
+
+block content
+  .project-categories
+    ul.list-unstyled.content
+      each page in pages
+        li: a(href= '/profile/' + page.title)
+          img(src= '/images/profilepages/thumb/' + page.image.filename)
+          h4.capitalize= page.title
+
+block sidebar
+  if (page)
+    .page-blurb
+      h3= page.title
+      p= page.blurb
