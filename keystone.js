@@ -4,6 +4,7 @@ require('dotenv')().load();
 
 // Require keystone
 var keystone = require('keystone');
+var config = require('config')
 
 keystone.init({
 	
@@ -13,6 +14,8 @@ keystone.init({
 	'less': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
+
+  'port': config.port || 3000,
 	
 	'views': 'templates/views',
 	'view engine': 'jade',
