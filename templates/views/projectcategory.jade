@@ -1,20 +1,18 @@
 extends ../layouts/default
 
 block content
-  .projects
+  .projects.image-grid
     ul.list-unstyled.content
       each project in projects
-        li
-          a(href= '/projects/' + category.slug + '/' + project.slug)
-            if project.images[0].filename
-              img(src= '/images/projects/thumb/' + project.images[0].filename)
-            else
-              img(src='http://placehold.it/200x200')
+        li.col-sm-4
+          - var src = project.images[0].filename ? '/images/projects/thumb/' + project.images[0].filename : 'http://placehold.it/250x250'
+          a(href= '/projects/' + project.slug, style='background-image: url('+src+')')
+          a(href= '/projects/' + project.slug)
             h4.capitalize= project.name
 
 block sidebar
   .sidebar
-    h2 Clients
+    h2= category.name
     .mja-breadcrumb
       a(href='/') Home
       span= ' - '

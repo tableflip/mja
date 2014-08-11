@@ -1,12 +1,14 @@
 extends ../layouts/default
 
 block content
-  .project-categories
+  .project-categories.image-grid
     ul.list-unstyled.content
       each profilePage in profilePages
-        li: a(href= '/profile/' + profilePage.name.toLowerCase())
-          img(src= '/images/profilepages/thumb/' + profilePage.image.filename)
-          h4.capitalize= profilePage.name
+        li.col-sm-4
+          - var src = profilePage.image.filename ? '/images/profilepages/thumb/' + profilePage.image.filename : 'http://placehold.it/250x250'
+          a(href= '/projects/' + profilePage.slug, style='background-image: url('+src+')')
+          a(href= '/projects/' + profilePage.slug)
+            h4.capitalize= profilePage.name
 
 block sidebar
   .sidebar
