@@ -3,13 +3,15 @@ extends ../layouts/default
 block content
   .project-categories
     ul.list-unstyled.content
-      each page in pages
-        li: a(href= '/profile/' + page.title)
-          img(src= '/images/profilepages/thumb/' + page.image.filename)
-          h4.capitalize= page.title
+      each profilePage in profilePages
+        li: a(href= '/profile/' + profilePage.title.toLowerCase())
+          img(src= '/images/profilepages/thumb/' + profilePage.image.filename)
+          h4.capitalize= profilePage.title
 
 block sidebar
-  if (page)
-    .page-blurb
-      h3= page.title
-      p= page.blurb
+  .sidebar
+    h2 Profile
+    h3.breadcrumb
+      a(href='/') Home
+      span  - Profile
+    !=page.sidebarContent

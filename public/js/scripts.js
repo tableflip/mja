@@ -17,7 +17,7 @@ jQuery(document).ready(function ($) {
     sidebar.animate({scrollTop: scrollTo})
   })
 
-  if (Galleria) {
+  if (window.Galleria) {
     Galleria.loadTheme('/js/lib/galleria/themes/classic/galleria.classic.min.js')
     Galleria.run('.galleria')
  }

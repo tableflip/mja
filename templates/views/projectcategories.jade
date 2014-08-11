@@ -9,7 +9,9 @@ block content
           h4.capitalize= category.title
 
 block sidebar
-  if (page)
-    .page-blurb
-      h3= page.title
-      p= page.blurb
+  .sidebar
+    h2 Projects
+    h3.breadcrumb
+      a(href='/') Home
+      span  - Projects
+    !=page.sidebarContent

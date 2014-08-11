@@ -1,4 +1,6 @@
 var keystone = require('keystone')
+var async = require('async')
+var Page = keystone.list('Page')
 var ProjectCategory = keystone.list('ProjectCategory')
 
 exports = module.exports = function(req, res) {
@@ -8,11 +10,33 @@ exports = module.exports = function(req, res) {
   
   locals.bodyClass = 'projectcategories'
 
-  ProjectCategory.model.find()
-  .exec(function (err, categories) {
-    if (err) console.error(err)
+  async.parallel(
+    {
+      categories: function (cb) {
+        ProjectCategory.model.find()
+        .exec(function (err, categories) {
+          cb(err, categories)
+        })
+      },
 
-    locals.categories = categories
-    view.render('projectcategories')
-  })
+      page: function (cb) {
+        Page.model.findOne()
+        .where({ name: 'Projects' })
+        .exec(function (err, page) {
+          cb(err, page)
+        })
+      }
+    },
+
+    function (err, results) {
+      if (err) {
+        console.error(err)
+        return view.render('500')
+      }
+
+      locals.page = results.page
+      locals.categories = results.categories
+      view.render('projectcategories')
+    }
+  )
 }
