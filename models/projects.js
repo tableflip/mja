@@ -1,5 +1,6 @@
 var keystone = require('keystone')
-var gm = require('gm')
+var gm = require('gm').subClass({ imageMagick: true })
+var mkdirp = require('mkdirp')
 var path = require('path')
 var async = require('async')
 var Types = keystone.Field.Types
@@ -10,6 +11,12 @@ var Project = new keystone.List('Project',
     sortable: true
   }
 )
+
+var savePath = path.join(__dirname,'..','public','images','projects','original')
+
+mkdirp(savePath, function (er) {
+  if (er) console.error('Failed to create image upload directory', savePath, er)
+})
 
 Project.add({
   name: {
@@ -24,7 +31,7 @@ Project.add({
   },
   images: {
     type: Types.LocalFiles,
-    dest: __dirname + '/../public/images/projects/original',
+    dest: savePath,
     post: { move: resizeImage }
   },
   description: {
@@ -40,8 +47,8 @@ Project.register()
 
 function resizeImage (project, request, fileData, next) {
   var srcPath = path.join(fileData.path, fileData.filename)
-  var thumbDestPath = path.join(fileData.path, '../thumb/', fileData.filename)
-  var largeDestPath = path.join(fileData.path, '../large/', fileData.filename)
+  var thumbDestPath = path.join(fileData.path, '..', 'thumb', fileData.filename)
+  var largeDestPath = path.join(fileData.path, '..', 'large', fileData.filename)
 
   async.parallel([
     function (cb) {
