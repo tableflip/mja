@@ -3,7 +3,7 @@ var Types = keystone.Field.Types
 
 var Client = new keystone.List('Client',
   { autokey: { path: 'slug', from: 'title', unique: true } }
-);
+)
 
 Client.add({
   name: {

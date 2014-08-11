@@ -2,6 +2,7 @@ var keystone = require('keystone')
 var async = require('async')
 var ClientCategory = keystone.list('ClientCategory')
 var Client = keystone.list('Client')
+var Page = keystone.list('Page')
 
 exports = module.exports = function(req, res) {
   
@@ -14,7 +15,6 @@ exports = module.exports = function(req, res) {
     {
       categories: function (cb) {
         ClientCategory.model.find()
-        .populate('category')
         .exec(function (err, categories) {
           cb(err, categories)
         })
@@ -22,9 +22,16 @@ exports = module.exports = function(req, res) {
 
       clients: function (cb) {
         Client.model.find()
-        .populate('category')
         .exec(function (err, clients) {
           cb(err, clients)
+        })
+      },
+
+      page: function (cb) {
+        Page.model.findOne()
+        .where({ name: 'Clients' })
+        .exec(function (err, page) {
+          cb(err, page)
         })
       }
     },
@@ -34,6 +41,8 @@ exports = module.exports = function(req, res) {
         console.error(err)
         return view.render('500')
       }
+
+      locals.page = results.page
       locals.clients = results.clients
       locals.categories = results.categories
       view.render('clients')
