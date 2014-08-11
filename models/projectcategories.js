@@ -21,8 +21,7 @@ ProjectCategory.add({
     type: Types.Html,
     wysiwyg: true,
     height: 300,
-    initial: true,
-    required: true
+    initial: true
   },
   image: {
     type: Types.LocalFile,
