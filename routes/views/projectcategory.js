@@ -10,7 +10,7 @@ exports = module.exports = function (req, res) {
   
   locals.bodyClass = 'projects'
 
-  var category = req.params.category.toLowerCase()
+  var category = req.params.category
 
   async.waterfall(
     [
