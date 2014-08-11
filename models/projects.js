@@ -6,7 +6,7 @@ var Types = keystone.Field.Types
 
 var Project = new keystone.List('Project',
   { autokey: { path: 'slug', from: 'title', unique: true } }
-);
+)
 
 Project.add({
   title: {
@@ -33,7 +33,7 @@ Project.add({
   }
 })
 
-Project.register();
+Project.register()
 
 function resizeImage (project, request, fileData, next) {
   var srcPath = path.join(fileData.path, fileData.filename)
@@ -45,11 +45,7 @@ function resizeImage (project, request, fileData, next) {
       gm(srcPath)
       .resize(800)
       .write(largeDestPath, function (err) {
-        if (err) {
-          console.error(err)
-          return next()
-        }
-        cb(null)
+        cb(err)
       })
     },
 
@@ -58,18 +54,14 @@ function resizeImage (project, request, fileData, next) {
       .resize(200)
       .crop(200, 150)
       .write(thumbDestPath, function (err) {
-        if (err) {
-          console.error(err)
-          return next()
-        } cb(null)
+        cb(err)
       })
     }
-  ], function (err, cb) {
+  ], function (err) {
     if (err) console.error(err)
-    console.log('done')
 
     // Don't call next unless this is the last file to process
     var lastImage = project.images[project.images.length - 1]
-    if (fileData.filename == lastImage.filename) next()
+    if (err || fileData.filename === lastImage.filename) next()
   })
 }

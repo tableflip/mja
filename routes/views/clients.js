@@ -1,6 +1,7 @@
 var keystone = require('keystone')
 var async = require('async')
-var Client = keystone;.list('Client')
+var ClientCategory = keystone.list('ClientCategory')
+var Client = keystone.list('Client')
 
 exports = module.exports = function(req, res) {
   
@@ -9,13 +10,32 @@ exports = module.exports = function(req, res) {
   
   locals.bodyClass = 'clients'
 
-  ClientCategory.model.find()
-  .populate('category')
-  .exec(function (err, categories) {
-    if (err) console.error(err)
+  async.parallel(
+    {
+      categories: function (cb) {
+        ClientCategory.model.find()
+        .populate('category')
+        .exec(function (err, categories) {
+          cb(err, categories)
+        })
+      },
 
+      clients: function (cb) {
+        Client.model.find()
+        .populate('category')
+        .exec(function (err, clients) {
+          cb(err, clients)
+        })
+      }
+    },
 
-    locals.clients = clients
-    view.render('clients')
-  })  
+    function (err, results) {
+      if (err) {
+        console.error(err)
+        return view.render('500')
+      }
+      locals.clients = results.clients
+      locals.categories = results.categories
+      view.render('clients')
+    })
 }

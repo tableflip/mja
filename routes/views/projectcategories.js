@@ -1,5 +1,4 @@
 var keystone = require('keystone')
-var async = require('async')
 var ProjectCategory = keystone.list('ProjectCategory')
 
 exports = module.exports = function(req, res) {

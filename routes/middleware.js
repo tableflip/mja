@@ -1,8 +1,5 @@
-var _ = require('underscore'),
-	querystring = require('querystring'),
-	keystone = require('keystone'),
-  path = require('path');
-
+var _ = require('underscore')
+var path = require('path')
 
 /**
 	Initialises the standard view locals

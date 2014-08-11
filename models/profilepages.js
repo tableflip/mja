@@ -6,7 +6,7 @@ var Types = keystone.Field.Types
 
 var ProfilePage = new keystone.List('ProfilePage',
   { autokey: { path: 'slug', from: 'title', unique: true } }
-);
+)
 
 ProfilePage.add({
   title: {
@@ -32,7 +32,7 @@ ProfilePage.add({
   }
 })
 
-ProfilePage.register();
+ProfilePage.register()
 
 function resizeImage (update, request, fileData, next) {
   var srcPath = path.join(fileData.path, fileData.filename)
@@ -46,11 +46,7 @@ function resizeImage (update, request, fileData, next) {
       gm(srcPath)
       .resize(800)
       .write(largeDestPath, function (err) {
-        if (err) {
-          console.error(err)
-          return next()
-        }
-        cb(null)
+        cb(err)
       })
     },
 
@@ -59,15 +55,11 @@ function resizeImage (update, request, fileData, next) {
       .resize(200)
       .crop(200, 150)
       .write(thumbDestPath, function (err) {
-        if (err) {
-          console.error(err)
-          return next()
-        } cb(null)
+        cb(err)
       })
     }
-  ], function (err, cb) {
+  ], function (err) {
     if (err) console.error(err)
-    console.log('done')
     next()
   })
 }

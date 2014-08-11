@@ -44,7 +44,7 @@ HomepageUpdate.add({
   }
 })
 
-HomepageUpdate.register();
+HomepageUpdate.register()
 
 function resizeImage (update, request, fileData, next) {
   var srcPath = path.join(fileData.path, fileData.filename)
@@ -58,11 +58,7 @@ function resizeImage (update, request, fileData, next) {
       gm(srcPath)
       .resize(800)
       .write(largeDestPath, function (err) {
-        if (err) {
-          console.error(err)
-          return next()
-        }
-        cb(null)
+        cb(err)
       })
     },
 
@@ -71,15 +67,11 @@ function resizeImage (update, request, fileData, next) {
       .resize(200)
       .crop(200, 150)
       .write(thumbDestPath, function (err) {
-        if (err) {
-          console.error(err)
-          return next()
-        } cb(null)
+        cb(err)
       })
     }
-  ], function (err, cb) {
+  ], function (err) {
     if (err) console.error(err)
-    console.log('done')
     next()
   })
 }

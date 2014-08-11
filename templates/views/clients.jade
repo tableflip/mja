@@ -8,7 +8,6 @@ block content
       p!= selectedUpdate.content
 
 block sidebar
-  a.scrollUp(href='#')
   ul.list-unstyled.sidebar
     each update in updates
       li
@@ -18,4 +17,3 @@ block sidebar
             h4= update.title
           .col-xs-6
             img(src= '/images/homepageupdates/thumb/' + update.image.filename)
-  a.scrollDown(href='#')

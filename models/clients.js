@@ -1,7 +1,4 @@
 var keystone = require('keystone')
-var gm = require('gm')
-var path = require('path')
-var async = require('async')
 var Types = keystone.Field.Types
 
 var Client = new keystone.List('Client',
@@ -20,4 +17,4 @@ Client.add({
   }
 })
 
-Client.register();
+Client.register()

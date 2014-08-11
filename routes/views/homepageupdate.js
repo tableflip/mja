@@ -20,7 +20,7 @@ exports = module.exports = function(req, res) {
     locals.updates = updates
 
     for (var i=0; i<updates.length; i++) {
-      if (updates[i].slug == slug) {
+      if (updates[i].slug === slug) {
         locals.selectedUpdate = updates[i]
         break
       }

@@ -6,7 +6,7 @@ var Types = keystone.Field.Types
 
 var ProjectCategory = new keystone.List('ProjectCategory',
   { autokey: { path: 'slug', from: 'title', unique: true } }
-);
+)
 
 ProjectCategory.add({
   title: {
@@ -29,7 +29,7 @@ ProjectCategory.add({
   }
 })
 
-ProjectCategory.register();
+ProjectCategory.register()
 
 function resizeImage (update, request, fileData, next) {
   var srcPath = path.join(fileData.path, fileData.filename)
@@ -62,9 +62,8 @@ function resizeImage (update, request, fileData, next) {
         } cb(null)
       })
     }
-  ], function (err, cb) {
+  ], function (err) {
     if (err) console.error(err)
-    console.log('done')
     next()
   })
 }

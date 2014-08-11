@@ -1,6 +1,5 @@
 var keystone = require('keystone')
 var Project = keystone.list('Project')
-var ProjectCategory = keystone.list('ProjectCategory')
 
 exports = module.exports = function(req, res) {
   
