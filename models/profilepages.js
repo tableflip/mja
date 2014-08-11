@@ -6,19 +6,15 @@ var Types = keystone.Field.Types
 
 var ProfilePage = new keystone.List('ProfilePage',
   {
-    autokey: { path: 'slug', from: 'title', unique: true },
+    autokey: { path: 'slug', from: 'name', unique: true },
     sortable: true
   }
 )
 
 ProfilePage.add({
-  title: {
+  name: {
     type: String,
     required: true,
-    initial: true
-  },
-  blurb: {
-    type: String,
     initial: true
   },
   image: {

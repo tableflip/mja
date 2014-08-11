@@ -4,14 +4,15 @@ block content
   .project-categories
     ul.list-unstyled.content
       each profilePage in profilePages
-        li: a(href= '/profile/' + profilePage.title.toLowerCase())
+        li: a(href= '/profile/' + profilePage.name.toLowerCase())
           img(src= '/images/profilepages/thumb/' + profilePage.image.filename)
-          h4.capitalize= profilePage.title
+          h4.capitalize= profilePage.name
 
 block sidebar
   .sidebar
     h2 Profile
-    h3.mja-breadcrumb
+    .mja-breadcrumb
       a(href='/') Home
       em  - Profile
-    !=page.sidebarContent
+    .sidebar-content
+      !=page.sidebarContent

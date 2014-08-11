@@ -11,12 +11,12 @@ exports = module.exports = function(req, res) {
   var slug = req.params.slug
 
   ProfilePage.model.findOne()
-  .where({'slug': slug})
+  .where({ 'slug': slug })
   .populate('category')
-  .exec(function (err, page) {
+  .exec(function (err, profilePage) {
     if (err) console.error(err)
 
-    locals.page = page
+    locals.profilePage = profilePage
     view.render('profilepage')
   })
 }
