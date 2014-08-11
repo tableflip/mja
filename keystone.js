@@ -38,8 +38,11 @@ keystone.set('locals', {
 keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
-	'galleries': 'galleries',
-	'users': 'users'
+	'Projects': ['Project', 'ProjectCategory'],
+	'Clients': ['Client', 'ClientCategory'],
+  'Top level pages': 'Page',
+  'Homepage': 'HomepageUpdate',
+  'Profile': 'ProfilePage'
 });
 
 keystone.start();

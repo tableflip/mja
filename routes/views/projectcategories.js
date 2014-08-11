@@ -14,6 +14,7 @@ exports = module.exports = function(req, res) {
     {
       categories: function (cb) {
         ProjectCategory.model.find()
+        .sort({ 'sortOrder': 1 })
         .exec(function (err, categories) {
           cb(err, categories)
         })

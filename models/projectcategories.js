@@ -5,22 +5,24 @@ var async = require('async')
 var Types = keystone.Field.Types
 
 var ProjectCategory = new keystone.List('ProjectCategory',
-  { autokey: { path: 'slug', from: 'title', unique: true } }
+  { 
+    autokey: { path: 'slug', from: 'name', unique: true },
+    sortable: true
+  }
 )
 
 ProjectCategory.add({
-  title: {
+  name: {
     type: String,
     required: true,
     initial: true
   },
-  description: {
-    type: String,
-    initial: true
-  },
-  published: {
-    type: Boolean,
-    'default': false
+  sidebarContent: {
+    type: Types.Html,
+    wysiwyg: true,
+    height: 500,
+    initial: true,
+    required: true
   },
   image: {
     type: Types.LocalFile,

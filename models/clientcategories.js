@@ -1,7 +1,10 @@
 var keystone = require('keystone')
 
 var ClientCategory = new keystone.List('ClientCategory',
-  { autokey: { path: 'slug', from: 'title', unique: true } }
+  {
+    autokey: { path: 'slug', from: 'name', unique: true },
+    sortable: true
+  }
 );
 
 ClientCategory.add({

@@ -1,0 +1,21 @@
+extends ../layouts/default
+
+block content
+  .projects
+    ul.list-unstyled.content
+      each project in projects
+        li
+          a(href= '/projects/' + category.slug + '/' + project.slug)
+            img(src= '/images/projects/thumb/' + project.images[0].filename)
+            h3= project.name
+
+block sidebar
+  .sidebar
+    h2 Clients
+    .mja-breadcrumb
+      a(href='/') Home
+      span= ' - '
+      a(href='/projects') Projects
+      em= ' - ' + category.name
+    .sidebar-content
+      != category.sidebarContent

@@ -4,14 +4,19 @@ block content
   .project-categories
     ul.list-unstyled.content
       each category in categories
-        li: a(href= '/projects/' + category.slug)
-          img(src= '/images/projectCategories/thumb/' + category.image.filename)
-          h4.capitalize= category.title
+        li
+          a(href= '/projects/' + category.slug)
+            if category.image.filename
+              img(src= '/images/projectCategories/thumb/' + category.image.filename)
+            else
+              img(src='http://placehold.it/200x200')
+            h4.capitalize= category.name
 
 block sidebar
   .sidebar
     h2 Projects
-    h3.breadcrumb
+    .mja-breadcrumb
       a(href='/') Home
-      span  - Projects
-    !=page.sidebarContent
+      em  - Projects
+    .sidebar-content
+      !=page.sidebarContent

@@ -17,7 +17,7 @@ exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index)
   app.get('/projects', routes.views.projectcategories)
-  app.get('/projects/:category', routes.views.projects)
+  app.get('/projects/:category', routes.views.projectcategory)
   app.get('/projects/:category/:slug', routes.views.project)
   app.get('/profile', routes.views.profilepages)
   app.get('/profile/:slug', routes.views.profilepage)

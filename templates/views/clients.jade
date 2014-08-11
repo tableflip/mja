@@ -13,7 +13,8 @@ block content
 block sidebar
   .sidebar
     h2 Clients
-    h3.breadcrumb
+    .mja-breadcrumb
       a(href='/') Home
-      span  - Clients
-    !=page.sidebarContent
+      em  - Clients
+    .sidebar-content
+      !=page.sidebarContent

@@ -37,5 +37,6 @@ exports = module.exports = function(req, res) {
       locals.page = results.page
       locals.profilePages = results.profilePages
       view.render('profilepages')
-    })
+    }
+  )
 }

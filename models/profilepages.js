@@ -5,7 +5,10 @@ var async = require('async')
 var Types = keystone.Field.Types
 
 var ProfilePage = new keystone.List('ProfilePage',
-  { autokey: { path: 'slug', from: 'title', unique: true } }
+  {
+    autokey: { path: 'slug', from: 'title', unique: true },
+    sortable: true
+  }
 )
 
 ProfilePage.add({

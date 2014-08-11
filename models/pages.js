@@ -3,7 +3,7 @@ var Types = keystone.Field.Types
 
 var Page = new keystone.List('Page',
   { 
-    autokey: { path: 'slug', from: 'title', unique: true },
+    autokey: { path: 'slug', from: 'name', unique: true },
     nocreate: true
   }
 )

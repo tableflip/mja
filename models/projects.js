@@ -5,11 +5,14 @@ var async = require('async')
 var Types = keystone.Field.Types
 
 var Project = new keystone.List('Project',
-  { autokey: { path: 'slug', from: 'title', unique: true } }
+  {
+    autokey: { path: 'slug', from: 'name', unique: true },
+    sortable: true
+  }
 )
 
 Project.add({
-  title: {
+  name: {
     type: String,
     required: true,
     initial: true

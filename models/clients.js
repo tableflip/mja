@@ -2,7 +2,10 @@ var keystone = require('keystone')
 var Types = keystone.Field.Types
 
 var Client = new keystone.List('Client',
-  { autokey: { path: 'slug', from: 'title', unique: true } }
+  {
+    autokey: { path: 'slug', from: 'name', unique: true },
+    sortable: true
+  }
 )
 
 Client.add({
