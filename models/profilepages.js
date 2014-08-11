@@ -29,7 +29,7 @@ ProfilePage.add({
   content: {
     type: Types.Html,
     wysiwyg: true,
-    height: 500,
+    height: 300,
     initial: true,
     required: true
   }

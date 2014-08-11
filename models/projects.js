@@ -20,10 +20,7 @@ Project.add({
   category: {
     type: Types.Relationship,
     ref: 'ProjectCategory',
-  },
-  published: {
-    type: Boolean,
-    'default': false
+    initial: true
   },
   images: {
     type: Types.LocalFiles,
@@ -31,8 +28,11 @@ Project.add({
     post: { move: resizeImage }
   },
   description: {
-    type: String,
-    initial: true
+    type: Types.Html,
+    wysiwyg: true,
+    height: 300,
+    initial: true,
+    required: true
   }
 })
 

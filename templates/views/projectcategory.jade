@@ -6,8 +6,11 @@ block content
       each project in projects
         li
           a(href= '/projects/' + category.slug + '/' + project.slug)
-            img(src= '/images/projects/thumb/' + project.images[0].filename)
-            h3= project.name
+            if project.images[0].filename
+              img(src= '/images/projects/thumb/' + project.images[0].filename)
+            else
+              img(src='http://placehold.it/200x200')
+            h4.capitalize= project.name
 
 block sidebar
   .sidebar

@@ -17,7 +17,7 @@ Page.add({
   sidebarContent: {
     type: Types.Html,
     wysiwyg: true,
-    height: 500
+    height: 300
   }
 })
 

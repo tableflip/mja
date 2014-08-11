@@ -10,4 +10,5 @@ block content
 block sidebar
   .project-category-blurb
     h3.capitalize= project.name
-    p= project.description
+    .sidebar-content
+      != project.description
