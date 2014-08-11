@@ -48,4 +48,6 @@ keystone.set('nav', {
   'Profile': 'ProfilePage'
 });
 
+if (config.mongo) keystone.set('mongo', config.mongo)
+
 keystone.start();
