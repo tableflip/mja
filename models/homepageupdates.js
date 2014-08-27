@@ -8,7 +8,8 @@ var Types = keystone.Field.Types
 var HomepageUpdate = new keystone.List('HomepageUpdate',
   {
     autokey: { path: 'slug', from: 'title', unique: true },
-    map: { name: 'title' }
+    map: { name: 'title' },
+    sortable: true
   }
 )
 
