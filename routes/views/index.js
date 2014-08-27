@@ -9,7 +9,7 @@ exports = module.exports = function(req, res) {
 	// Set locals
 	locals.section = 'home';
 
-  HomepageUpdate.model.find().where({'published': true}).sort({'publishedDate': '-1'}).exec(function (err, updates) {
+  HomepageUpdate.model.find().where({'published': true}).sort({ 'sortOrder': 1 }).exec(function (err, updates) {
     if (err) console.error(err)
 
     // Render the view
