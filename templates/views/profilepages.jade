@@ -6,8 +6,8 @@ block content
       each profilePage in profilePages
         li.col-sm-4
           - var src = profilePage.image.filename ? '/images/profilepages/thumb/' + profilePage.image.filename : 'http://placehold.it/250x250'
-          a(href= '/projects/' + profilePage.slug, style='background-image: url('+src+')')
-          a(href= '/projects/' + profilePage.slug)
+          a(href= '/profile/' + profilePage.slug, style='background-image: url('+src+')')
+          a(href= '/profile/' + profilePage.slug)
             h4.capitalize= profilePage.name
 
 block sidebar
