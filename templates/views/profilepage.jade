@@ -2,11 +2,11 @@ extends ../layouts/default
 
 block content
   .content
-    img(src= '/images/profilepages/large/' + profilePage.image.filename)
+    img(src= profilePage._.image.fill(1200, 800))
 
 block sidebar
   .sidebar
-    h2= profilePage.name
+    h4= profilePage.name
     .mja-breadcrumb
       a(href='/') Home
       span= ' - '

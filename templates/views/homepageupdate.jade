@@ -3,8 +3,9 @@ extends ../layouts/default
 block content
   ul.list-unstyled.content
     li
-      img(src= '/images/homepageupdates/large/' + selectedUpdate.image.filename)
+      img(src= selectedUpdate._.image.fill(1200, 800))
       h3= selectedUpdate.title
+      p.excerpt!= selectedUpdate.excerpt
       p!= selectedUpdate.content
 
 block sidebar
@@ -17,5 +18,5 @@ block sidebar
             i= update.type + ':'
             h4= update.title
           .col-xs-6
-            img(src= '/images/homepageupdates/thumb/' + update.image.filename)
+            img(src= update._.image.fill(200, 200))
   a.scrollDown(href='#')

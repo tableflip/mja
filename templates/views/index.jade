@@ -4,9 +4,9 @@ block content
   ul.list-unstyled.content
     each update in updates
       li
-        img(src= '/images/homepageupdates/large/' + update.image.filename)
+        img(src= update._.image.fill(1200, 800))
         h3= update.title
-        p!= update.content
+        p!= update.excerpt
 
 block sidebar
   a.scrollUp(href='#')
@@ -18,5 +18,5 @@ block sidebar
             i= update.type + ':'
             h4= update.title
           .col-xs-6
-            img(src= '/images/homepageupdates/thumb/' + update.image.filename)
+            img(src= update._.image.fill(200, 200))
   a.scrollDown(href='#')

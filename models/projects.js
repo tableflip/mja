@@ -1,8 +1,4 @@
 var keystone = require('keystone')
-var gm = require('gm').subClass({ imageMagick: true })
-var mkdirp = require('mkdirp')
-var path = require('path')
-var async = require('async')
 var Types = keystone.Field.Types
 
 var Project = new keystone.List('Project',
@@ -11,12 +7,6 @@ var Project = new keystone.List('Project',
     sortable: true
   }
 )
-
-var savePath = path.join(__dirname,'..','public','images','projects','original')
-
-mkdirp(savePath, function (er) {
-  if (er) console.error('Failed to create image upload directory', savePath, er)
-})
 
 Project.add({
   name: {
@@ -30,9 +20,7 @@ Project.add({
     initial: true
   },
   images: {
-    type: Types.LocalFiles,
-    dest: savePath,
-    post: { move: resizeImage }
+    type: Types.CloudinaryImages
   },
   description: {
     type: Types.Html,
@@ -44,34 +32,3 @@ Project.add({
 })
 
 Project.register()
-
-function resizeImage (project, request, fileData, next) {
-  var srcPath = path.join(fileData.path, fileData.filename)
-  var thumbDestPath = path.join(fileData.path, '..', 'thumb', fileData.filename)
-  var largeDestPath = path.join(fileData.path, '..', 'large', fileData.filename)
-
-  async.parallel([
-    function (cb) {
-      gm(srcPath)
-      .resize(800)
-      .write(largeDestPath, function (err) {
-        cb(err)
-      })
-    },
-
-    function (cb) {
-      gm(srcPath)
-      .resize(200)
-      .crop(200, 150)
-      .write(thumbDestPath, function (err) {
-        cb(err)
-      })
-    }
-  ], function (err) {
-    if (err) console.error(err)
-
-    // Don't call next unless this is the last file to process
-    var lastImage = project.images[project.images.length - 1]
-    if (err || fileData.filename === lastImage.filename) next()
-  })
-}

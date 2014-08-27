@@ -19,4 +19,5 @@ public/images/homepageupdates
 public/images/projectcategories
 public/images/projects
 
-config/runtime.json
+config/production.json
+config/development.json

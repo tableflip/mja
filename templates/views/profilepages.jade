@@ -5,14 +5,14 @@ block content
     ul.list-unstyled.content
       each profilePage in profilePages
         li.col-sm-4
-          - var src = profilePage.image.filename ? '/images/profilepages/thumb/' + profilePage.image.filename : 'http://placehold.it/250x250'
-          a(href= '/profile/' + profilePage.slug, style='background-image: url("'+src+'")')
           a(href= '/profile/' + profilePage.slug)
+            - var src = profilePage.image.url ? profilePage._.image.fill(300, 300) : 'http://placehold.it/300x300'
+            .grid-image(style='background-image: url("'+ src +'")')
             h4.capitalize= profilePage.name
 
 block sidebar
   .sidebar
-    h2 Profile
+    h4 Profile
     .mja-breadcrumb
       a(href='/') Home
       em  - Profile

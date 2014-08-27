@@ -1,8 +1,4 @@
 var keystone = require('keystone')
-var gm = require('gm').subClass({ imageMagick: true })
-var mkdirp = require('mkdirp')
-var path = require('path')
-var async = require('async')
 var Types = keystone.Field.Types
 
 var ProfilePage = new keystone.List('ProfilePage',
@@ -12,12 +8,6 @@ var ProfilePage = new keystone.List('ProfilePage',
   }
 )
 
-var savePath = path.join(__dirname,'..','public','images','profilepages','original')
-
-mkdirp(savePath, function (er) {
-  if (er) console.error('Failed to create image upload directory', savePath, er)
-})
-
 ProfilePage.add({
   name: {
     type: String,
@@ -25,9 +15,7 @@ ProfilePage.add({
     initial: true
   },
   image: {
-    type: Types.LocalFile,
-    dest: savePath,
-    post: { move: resizeImage }
+    type: Types.CloudinaryImage
   },
   content: {
     type: Types.Html,
@@ -39,31 +27,3 @@ ProfilePage.add({
 })
 
 ProfilePage.register()
-
-function resizeImage (update, request, fileData, next) {
-  var srcPath = path.join(fileData.path, fileData.filename)
-  var thumbDestPath = path.join(fileData.path, '..', 'thumb', fileData.filename)
-  var largeDestPath = path.join(fileData.path, '..', 'large', fileData.filename)
-
-  async.parallel([
-    function (cb) {
-      gm(srcPath)
-      .resize(800)
-      .write(largeDestPath, function (err) {
-        cb(err)
-      })
-    },
-
-    function (cb) {
-      gm(srcPath)
-      .resize(200)
-      .crop(200, 150)
-      .write(thumbDestPath, function (err) {
-        cb(err)
-      })
-    }
-  ], function (err) {
-    if (err) console.error(err)
-    next()
-  })
-}

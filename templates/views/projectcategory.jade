@@ -5,14 +5,14 @@ block content
     ul.list-unstyled.content
       each project in projects
         li.col-sm-4
-          - var src = project.images[0] ? '/images/projects/thumb/' + project.images[0].filename : 'http://placehold.it/250x250'
-          a(href= '/projects/'+category.slug+'/'+project.slug, style='background-image: url('+src+')')
           a(href= '/projects/'+category.slug+'/'+project.slug)
+            .grid-image(style='background-image: url("'+ project.images[0].fill(300, 300) +'")')
             h4.capitalize= project.name
+          
 
 block sidebar
   .sidebar
-    h2= category.name
+    h4= category.name
     .mja-breadcrumb
       a(href='/') Home
       span= ' - '

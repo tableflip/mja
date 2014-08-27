@@ -5,14 +5,14 @@ block content
     ul.list-unstyled.content
       each category in categories
         li.col-sm-4
-          - var src = category.image.filename ? '/images/projectcategories/thumb/' + category.image.filename : 'http://placehold.it/250x250'
-          a(href= '/projects/' + category.slug, style='background-image: url('+src+')')
+          - var src = category.image.url ? category._.image.fill(300, 300) : 'http://placehold.it/300x300'
           a(href= '/projects/' + category.slug)
+            .grid-image(style='background-image: url("'+ src +'")')
             h4.capitalize= category.name
 
 block sidebar
   .sidebar
-    h2 Projects
+    h4 Projects
     .mja-breadcrumb
       a(href='/') Home
       em  - Projects

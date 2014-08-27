@@ -32,6 +32,7 @@ body {
   margin: 20px auto;
   width: 100%;
   height: 100%;
+  font-weight: 200;
 }
 
 .brand {
@@ -80,12 +81,41 @@ body {
   margin-top: 40px;
 }
 
-.image-grid ul li a:first-child {
+.image-grid ul li {
+  padding: 30px;
+}
+
+.image-grid ul li .grid-image {
   display: block;
   height: 240px;
   overflow: hidden;
   background-position: center center;
   background-size: auto 100%;
+}
+
+footer {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  color: #777;
+
+  a {
+    color: #777;    
+  }
+}
+
+a {
+  h1, h2, h3, h4, h5 {
+    color: #777;
+    font-weight: 200;
+  }
+}
+
+a:hover {
+  text-decoration: none;
+  h1, h2, h3, h4, h5 {
+    color: black;
+  }
 }
 
 /*
@@ -98,19 +128,21 @@ body {
 a.scrollUp, a.scrollDown {
   display: block;
   float: right;
-  width: 45px;
-  height: 30px;
+  width: 0;
+  height: 0;
   margin: 15px;
 }
 
 a.scrollUp {
-  background: url('../images/arrow-up.png') no-repeat;
-  background-size: 100% auto;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #777;
 }
 
 a.scrollDown {
-  background: url('../images/arrow-down.png') no-repeat;
-  background-size: 100% auto;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #777;
 }
 
 .sidebar {

@@ -4,11 +4,18 @@ block content
   .project
     .galleria
       each image in project.images
-        a(href='/images/projects/thumb/'+image.filename)
-        img(src='/images/projects/large/'+image.filename)
+        a(href=image.fill(300, 200))
+        img(src=image.fill(1200, 800))
 
 block sidebar
   .project-category-blurb
     h3.capitalize= project.name
+    .mja-breadcrumb
+      a(href='/') Home
+      span= ' - '
+      a(href='/projects') Projects
+      span= ' - ' + project.category.name
+      a(href='/projects') 
+        em= ' - ' + project.name
     .sidebar-content
       != project.description
