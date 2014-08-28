@@ -17,4 +17,5 @@ block sidebar
       a(href='/') Home
       em  - Clients
     .sidebar-content
-      !=page.sidebarContent
+      if (profilePage)
+        !=profilePage.content

@@ -2,7 +2,7 @@ var keystone = require('keystone')
 var async = require('async')
 var ClientCategory = keystone.list('ClientCategory')
 var Client = keystone.list('Client')
-var Page = keystone.list('Page')
+var ProfilePage = keystone.list('ProfilePage')
 
 exports = module.exports = function(req, res) {
   
@@ -27,11 +27,11 @@ exports = module.exports = function(req, res) {
         })
       },
 
-      page: function (cb) {
-        Page.model.findOne()
-        .where({ name: 'Clients' })
-        .exec(function (err, page) {
-          cb(err, page)
+      profilePage: function (cb) {
+        ProfilePage.model.findOne()
+        .where({ slug: 'clients' })
+        .exec(function (err, profilePage) {
+          cb(err, profilePage)
         })
       }
     },
@@ -42,7 +42,7 @@ exports = module.exports = function(req, res) {
         return view.render('500')
       }
 
-      locals.page = results.page
+      if (results.profilePage) locals.profilePage = results.profilePage
       locals.clients = results.clients
       locals.categories = results.categories
       view.render('clients')

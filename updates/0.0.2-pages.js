@@ -1,7 +1,7 @@
 exports.create = {
   Page: [
     { name: 'Projects' },
-    { name: 'Clients' },
-    { name: 'Profile' }
+    { name: 'Contact' },
+    { name: 'Profile' },
   ]
 }
