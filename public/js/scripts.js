@@ -20,5 +20,9 @@ jQuery(document).ready(function ($) {
   if (window.Galleria) {
     Galleria.loadTheme('/js/lib/galleria/themes/classic/galleria.classic.min.js')
     Galleria.run('.galleria')
- }
+  }
+
+  if ($('body').hasClass('contact')) {
+    //$('iframe')
+  }
 })

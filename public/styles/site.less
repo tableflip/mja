@@ -102,7 +102,7 @@ body {
 footer {
   position: fixed;
   bottom: 10px;
-  left: 10px;
+  left: 30px;
   color: #777;
 
   a {
@@ -170,27 +170,19 @@ a.scrollDown {
 }
 
 /*
-* Project categories
-*/
-
-/*
 * Project gallery
 */
-.gallery {
-  position: fixed;
-  .col-left {
-    position: relative;
-  }
-}
-
 .gallery .col-right {
   height: 100%;
+  min-height: 100%;
   .project {
     width: 100%;
     height: 100%;
+    min-height: 600px;
     .galleria {
       width: 100%;
       height: 80%;
+      min-height: 480px;
     }
   }
 }
@@ -219,6 +211,16 @@ a {
 @media all and (min-width: 768px) {
   .col-left .navbar-collapse {
     display: none !important;
+  }
+
+  /*
+  * Project gallery
+  */
+  .gallery {
+    position: fixed;
+    .col-left {
+      position: relative;
+    }
   }
 }
 @media all and (max-width: 767px) {
