@@ -4,13 +4,13 @@ block content
   ul.list-unstyled.content
     each update in updates
       li
-        img(src= update._.image.fill(1200, 800))
+        .bg-hidden-mobile(style='background-image: url("'+update._.image.fill(800, 600) + '");')
         h3= update.title
         p!= update.excerpt
 
 block sidebar
   a.scrollUp(href='#')
-  ul.list-unstyled.sidebar
+  ul.list-unstyled.sidebar.clearfix
     each update in updates
       li
         a(href='updates/' + update.slug)
@@ -18,5 +18,5 @@ block sidebar
             i= update.type + ':'
             h4= update.title
           .col-xs-6
-            img(src= update._.image.fill(200, 200))
+            img(src= update._.image.fill(350, 350))
   a.scrollDown(href='#')
