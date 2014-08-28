@@ -5,7 +5,8 @@ block content
     each update in updates
       li
         .bg-hidden-mobile(style='background-image: url("'+update._.image.fill(800, 600) + '");')
-        h3= update.title
+        a(href='updates/' + update.slug)
+          h3= update.title
         p!= update.excerpt
 
 block sidebar
