@@ -27,7 +27,8 @@ keystone.init({
 	'user model': 'User',
 	'cookie secret': 'g<?`X+s/>c{Hq6Gl2Si{If:;"m!&q(3xIoIr/oklkCP;GV6:G}(5}5I=!>0Wt^#R',
   'logger': 'default',
-  'cloudinary config': config['cloudinary config']
+  'cloudinary config': config['cloudinary config'],
+  'wysiwyg cloudinary images': true
 	
 });
 

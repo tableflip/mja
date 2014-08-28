@@ -33,6 +33,7 @@ HomepageUpdate.add({
   content: {
     type: Types.Html,
     wysiwyg: true,
+    'images': true,
     height: 500
   },
   excerpt: {
