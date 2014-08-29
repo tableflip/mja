@@ -1,0 +1,21 @@
+extends ../layouts/about-layout
+
+block content
+  .content
+    each bio in bios
+      .bio
+        h4= bio.name
+        p!= bio.content
+
+block sidebar
+  .sidebar
+    h4= About
+    .mja-breadcrumb
+      a(href='/') Home
+      span= ' - '
+      a(href='/profile') Profile
+      em  - About
+    .sidebar-content
+      each bio in bios
+        - src = bio.image.url ? bio._.image.fill(400, 400) : 'http://placehold.it/400x400'
+        .bio-pic(style='background-image: url("'+ src +'");')

@@ -45,10 +45,9 @@ keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
 	'Projects': ['Project', 'ProjectCategory'],
-	'Clients': ['Client', 'ClientCategory'],
   'Top level pages': 'Page',
   'Homepage': 'HomepageUpdate',
-  'Profile': 'ProfilePage'
+  'Profile': ['Client', 'ClientCategory', 'ProfilePage', 'Bio']
 });
 
 if (config.mongo) keystone.set('mongo', config.mongo)

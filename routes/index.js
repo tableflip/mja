@@ -21,6 +21,7 @@ exports = module.exports = function (app) {
   app.get('/projects/:category/:slug', routes.views.project)
   app.get('/profile', routes.views.profilepages)
   app.get('/profile/clients', routes.views.clients)
+  app.get('/profile/about', routes.views.about)
   app.get('/profile/:slug', routes.views.profilepage)
   app.get('/contact', routes.views.contact)
 	app.get('/updates/:slug', routes.views.homepageupdate)
