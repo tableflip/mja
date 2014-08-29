@@ -6,8 +6,6 @@ exports = module.exports = function(req, res) {
   var locals = res.locals,
     view = new keystone.View(req, res)
   
-  var slug = req.params.slug
-
   locals.bodyClass = 'about'
 
   Bio.model.find()

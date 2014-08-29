@@ -1,3 +1,4 @@
+/*jshint quotmark: double */
 exports.create = {
   Bio: [
     {
