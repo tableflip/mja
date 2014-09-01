@@ -43,14 +43,14 @@ body {
   text-indent: -9999px;
   background: url(../images/mja-logo.png) no-repeat;
   background-size: 100% auto;
+  width: 95%;
 }
 
 .col-left {
   overflow: hidden;
   position: fixed;
-  top: 25px;
+  top: 19px;
   bottom: 30px;
-  border-right: 2px solid rgb(181,0,0);
   header {
     min-height: 57px;
     margin-bottom: 40px;
@@ -62,8 +62,16 @@ body {
   }
 }
 
+.col-right {
+  border-left: 2px solid rgb(181,0,0);
+}
+
 .mja-breadcrumb {
   margin-bottom: 40px;
+}
+
+.navbar-nav > li {
+  margin-top: -4px;
 }
 
 .navbar-nav > li > a {
@@ -72,6 +80,11 @@ body {
 
 .col-right .content {
   margin-left: 30px;
+  margin-top: 45px;
+}
+
+.sidebar-content {
+  padding-right: 10px;
 }
 
 .navbar {
@@ -83,8 +96,13 @@ body {
   max-width: 100%;
 }
 
+.content .col-sm-4 {
+  padding-left: 0;
+  padding-right: 30px;
+}
+
 .image-grid ul li {
-  padding: 15px;
+  padding: 0 30px 30px 0;
 }
 
 .image-grid ul li .grid-image {
