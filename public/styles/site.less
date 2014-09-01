@@ -48,7 +48,7 @@ body {
 .col-left {
   overflow: hidden;
   position: fixed;
-  top: 40px;
+  top: 25px;
   bottom: 30px;
   border-right: 2px solid rgb(181,0,0);
   header {
@@ -256,10 +256,6 @@ a {
 }
 
 @media all and (min-width: 768px) {
-  html {
-    border-top: 20px solid #EEE;
-    border-bottom: 20px solid #EEE;
-  }
   .col-left .navbar-collapse {
     display: none !important;
   }
@@ -287,11 +283,14 @@ a {
   }
 }
 @media all and (min-width: 2000px) {
+  html {
+    background-color: #EEE;
+  }
   .col-left {
     width: 25%;
   }
   .col-right {
-    margin-top: 15px;
+    margin-top: 20px;
   }
 }
 @media all and (max-width: 767px) {
