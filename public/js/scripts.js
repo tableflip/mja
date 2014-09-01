@@ -22,7 +22,13 @@ jQuery(document).ready(function ($) {
     Galleria.run('.galleria')
   }
 
-  if ($('body').hasClass('contact')) {
-    //$('iframe')
+  if (!$('body').hasClass('gallery')) {
+    $(window).resize(function () {
+      if ($(window).width() < 768) {
+        $('.col-left').attr('style', '')
+        return
+      }
+      $('.col-left').width($('body').width() * 0.32)
+    })
   }
 })
