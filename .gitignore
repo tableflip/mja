@@ -21,3 +21,5 @@ public/images/projects
 
 config/production.json
 config/development.json
+
+public/styles/site.min.css
