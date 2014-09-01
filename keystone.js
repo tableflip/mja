@@ -47,7 +47,7 @@ keystone.set('nav', {
 	'Projects': ['Project', 'ProjectCategory'],
   'Top level pages': 'Page',
   'Homepage': 'HomepageUpdate',
-  'Profile': ['Client', 'ClientCategory', 'ProfilePage', 'Bio']
+  'Profile': ['ProfilePage', 'Bio', 'Client', 'ClientCategory']
 });
 
 if (config.mongo) keystone.set('mongo', config.mongo)
