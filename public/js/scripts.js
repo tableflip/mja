@@ -22,6 +22,10 @@ jQuery(document).ready(function ($) {
     Galleria.run('.galleria')
   }
 
+  if (!$('body').hasClass('gallery') && $(window).width() > 2000) {
+    $('.col-left').width($('body').width() * 0.32)
+  }
+
   if (!$('body').hasClass('gallery')) {
     $(window).resize(function () {
       if ($(window).width() < 768) {
