@@ -15,9 +15,9 @@ block sidebar
     each update in updates
       li
         a(href='updates/' + update.slug)
-          .col-xs-6
+          .col-sm-6
+            img(src= update._.image.fill(350, 350))
+          .col-sm-6
             i= update.type + ':'
             h4= update.title
-          .col-xs-6
-            img(src= update._.image.fill(350, 350))
   a.scrollDown(href='#')
