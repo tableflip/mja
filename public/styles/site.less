@@ -43,7 +43,6 @@ body {
   text-indent: -9999px;
   background: url(../images/mja-logo.png) no-repeat;
   background-size: 100% auto;
-  width: 95%;
 }
 
 .col-left {
@@ -274,8 +273,18 @@ a {
 }
 
 @media all and (min-width: 768px) {
+  html {
+    min-height: 100%;
+  }
+  .col-right {
+    min-height: 100%;
+  }
   .col-left .navbar-collapse {
     display: none !important;
+  }
+
+  .brand {
+    width: 95%;
   }
 
   .home .sidebar .col-sm-6 {
@@ -323,7 +332,6 @@ a {
   }
   .brand {
     display: inline-block;
-    height: 40px;
     margin: 7px 0;
   }
 
@@ -366,7 +374,28 @@ a {
   }
 
   .navbar {
+    min-height: 57px;
     padding-right: 0;
+  }
+
+  .navbar-collapse {
+    clear: both;
+    text-align: right;
+    padding-right: 0;
+    margin-bottom: 15px;
+    border-right: 1px solid black;
+  }
+
+  .navbar-nav {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .navbar-nav > li {
+    margin-top: 0;
+    > a {
+      padding-top: 10px;
+    }
   }
 
   .col-left, .col-right {
