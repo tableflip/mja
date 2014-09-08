@@ -27,6 +27,10 @@ jQuery(document).ready(function ($) {
   }
 
   if (!$('body').hasClass('gallery')) {
+    if ($(window).width() > 768) {
+      $('.col-left').width($('body').width() * 0.32)
+    }
+
     $(window).resize(function () {
       if ($(window).width() < 768) {
         $('.col-left').attr('style', '')
