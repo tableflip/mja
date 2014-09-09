@@ -23,12 +23,12 @@ jQuery(document).ready(function ($) {
   }
 
   if (!$('body').hasClass('gallery') && $(window).width() > 2000) {
-    $('.col-left').width($('body').width() * 0.32)
+    $('.col-left').width($('body').width() * 0.30)
   }
 
   if (!$('body').hasClass('gallery')) {
     if ($(window).width() > 768) {
-      $('.col-left').width($('body').width() * 0.32)
+      $('.col-left').width($('body').width() * 0.30)
     }
 
     $(window).resize(function () {
@@ -36,7 +36,7 @@ jQuery(document).ready(function ($) {
         $('.col-left').attr('style', '')
         return
       }
-      $('.col-left').width($('body').width() * 0.32)
+      $('.col-left').width($('body').width() * 0.30)
     })
   }
 })
