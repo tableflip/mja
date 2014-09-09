@@ -32,7 +32,7 @@ html {
   overflow-y: scroll;
 }
 body {
-  margin: 20px auto;
+  margin: 30px auto;
   width: 100%;
   height: 100%;
   font-weight: 200;
@@ -109,7 +109,7 @@ body {
 
 .image-grid ul li .grid-image {
   display: block;
-  height: 240px;
+  height: 180px;
   overflow: hidden;
   background-position: center center;
   background-size: auto 100%;
@@ -277,6 +277,20 @@ a {
 
 @media all and (min-width: 768px) {
   html {
+    background-color: #EEE;
+  }
+  body {
+    max-width: 960px;
+  }
+  .col-left {
+    width: 30%;
+    top: 50px;
+  }
+  .col-right {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  html {
     min-height: 100%;
   }
   .col-right {
@@ -295,12 +309,12 @@ a {
   }
 
   .image-grid ul li .grid-image {
-    width: 240px;
+    max-width: 240px;
     margin: 0 auto;
   }
 
   .image-grid h4 {
-    width: 240px;
+    max-width: 240px;
     margin: 10px auto;
   }
 
@@ -315,22 +329,17 @@ a {
   }
 }
 @media all and (min-width: 1281px) {
+  body {
+    max-width: 1280px;
+  }
   .bg-hidden-mobile {
     background-position: center;
   }
   .sidebar li {
     height: 350px;
   }
-  html {
-    background-color: #EEE;
-  }
-  .col-left {
-    width: 30%;
-    top: 40px;
-  }
-  .col-right {
-    margin-top: 20px;
-    margin-bottom: 20px;
+  .image-grid ul li .grid-image {
+    height: 240px;
   }
 }
 @media all and (max-width: 767px) {
