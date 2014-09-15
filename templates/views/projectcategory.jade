@@ -5,8 +5,9 @@ block content
     ul.list-unstyled.content
       each project in projects
         li.col-sm-4
+          - var src = project.images[0] ? project.images[0].fill(800, 600) : 'http://placehold.it/800x600'
           a(href= '/projects/'+category.slug+'/'+project.slug)
-            .grid-image(style='background-image: url("'+ project.images[0].fill(300, 300) +'")')
+            .grid-image(style='background-image: url("'+ project.images[0].fill(800, 600) +'")')
             h4.capitalize= project.name
           
 
