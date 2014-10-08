@@ -43,7 +43,7 @@ jQuery(document).ready(function ($) {
 })
 
 function detectMobile () {
-  var mobileSniffer = $('#mobile-sniffer')
-  if (mobileSniffer.css('display') == 'block') return true
+  var mobileSniffer = jQuery('#mobile-sniffer')
+  if (mobileSniffer.css('display') === 'block') return true
   return false
 }
