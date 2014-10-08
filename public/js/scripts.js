@@ -17,10 +17,10 @@ jQuery(document).ready(function ($) {
     sidebar.animate({scrollTop: scrollTo})
   })
 
-  $('body:not(.about) .col-right .content').jScrollPane({ verticalGutter: 20 })
+  $('body:not(.about, .project, .contact) .col-right .content').jScrollPane({ verticalGutter: 20 })
   $('.about .scroll-all').jScrollPane({ verticalGutter: 80 })
 
-  if (window.Galleria) {
+  if ($('body').hasClass('project')) {
     Galleria.loadTheme('/js/lib/galleria/themes/classic/galleria.classic.min.js')
     Galleria.run('.galleria')
   }

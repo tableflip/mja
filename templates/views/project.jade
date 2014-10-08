@@ -1,11 +1,11 @@
-extends ../layouts/default-with-galleria
+extends ../layouts/default
 
 block content
   .project
     .galleria
       each image in project.images
         a(href=image.fill(300, 200))
-        img(src=image.fill(1200, 800))
+        img(src=image.fit(1200, 800))
 
 block sidebar
   .project-category-blurb

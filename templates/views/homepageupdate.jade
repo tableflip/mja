@@ -3,7 +3,7 @@ extends ../layouts/default
 block content
   ul.list-unstyled.content
     li
-      img(src= selectedUpdate._.image.fill(800, 600))
+      .bg-hidden-mobile(style='background-image: url("'+ selectedUpdate._.image.fill(800, 600) + '");')
       h3= selectedUpdate.title
       p.excerpt!= selectedUpdate.excerpt
       p!= selectedUpdate.content
