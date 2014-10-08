@@ -17,6 +17,9 @@ html
 
     link(href="/styles/site.min.css", rel="stylesheet")
 
+    <!-- styles needed by jScrollPane -->
+    link(type='text/css', href='/js/lib/jscrollpane/jquery.jscrollpane.css', rel='stylesheet', media='all')
+
     //- This file provides the default styling for the KeystoneJS Content Editor
     if user && user.canAccessKeystone
       link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
@@ -102,6 +105,12 @@ html
     //- Customise which Bootstrap javascript files are served by including
     //- them specifically here, instead of bootstrap-3.1.0.min.js
     script(src='/js/lib/bootstrap/bootstrap-3.1.0.min.js')
+
+    <!-- the mousewheel plugin - optional to provide mousewheel support -->
+    script(type='text/javascript', src='/js/lib/jscrollpane/jquery.mousewheel.js')
+
+    <!-- the jScrollPane script -->
+    script(type='text/javascript', src='/js/lib/jscrollpane/jquery.jscrollpane.min.js')
 
     //- Include our scripts
     script(src='/js/scripts.js')

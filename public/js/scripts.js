@@ -17,6 +17,8 @@ jQuery(document).ready(function ($) {
     sidebar.animate({scrollTop: scrollTo})
   })
 
+  $('.col-right .content').jScrollPane({ verticalGutter: 20 })
+
   if (window.Galleria) {
     Galleria.loadTheme('/js/lib/galleria/themes/classic/galleria.classic.min.js')
     Galleria.run('.galleria')
