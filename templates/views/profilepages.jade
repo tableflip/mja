@@ -4,7 +4,7 @@ block content
   .project-categories.image-grid
     ul.list-unstyled.content
       each profilePage in profilePages
-        li.col-sm-4
+        li.col-sm-4(title=profilePage.name)
           a(href= '/profile/' + profilePage.slug)
             - var src = profilePage.image.url ? profilePage._.image.fill(300, 300) : 'http://placehold.it/300x300'
             .grid-image(style='background-image: url("'+ src +'")')

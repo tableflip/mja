@@ -4,7 +4,7 @@ block content
   .project-categories.image-grid
     ul.list-unstyled.content
       each category in categories
-        li.col-sm-4
+        li.col-sm-4(title=category.name)
           - var src = category.image.url ? category._.image.fill(800, 600) : 'http://placehold.it/800x600'
           a(href= '/projects/' + category.slug)
             .grid-image(style='background-image: url("'+ src +'")')

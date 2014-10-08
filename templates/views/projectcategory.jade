@@ -4,11 +4,12 @@ block content
   .projects.image-grid
     ul.list-unstyled.content
       each project in projects
-        li.col-sm-4
+        li.col-sm-4(title=project.name)
           - var src = project.images[0] ? project.images[0].fill(800, 600) : 'http://placehold.it/800x600'
           a(href= '/projects/'+category.slug+'/'+project.slug)
             .grid-image(style='background-image: url("'+ src +'")')
             h4.capitalize= project.name
+              .fade-bottom
           
 
 block sidebar

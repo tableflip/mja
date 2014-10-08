@@ -89,20 +89,16 @@ body {
 }
 
 .image-grid ul li {
-  padding: 0 30px 30px 0;
+  padding: 0 30px 10px 0;
 }
 
 .image-grid ul li .grid-image {
   display: block;
-  height: 180px;
+  height: 120px;
   overflow: hidden;
   background-position: center center;
   background-size: auto 100%;
   background-repeat: no-repeat;
-}
-
-.image-grid h4 {
-  max-height: 19px;
 }
 
 .bg-hidden-mobile {
@@ -282,6 +278,9 @@ a {
   .gallery .col-left, .about .col-left {
     top: 20px;
   }
+  .col-left {
+    height: 540px;
+  }
   .col-right {
     position: static;
     padding-right: 0;
@@ -313,14 +312,34 @@ a {
     min-height: 400px;
   }
   .image-grid ul li .grid-image {
-    max-width: 240px;
-    margin: 0 auto;
+    width: 120px;
+    margin: 0;
   }
   .image-grid h4 {
-    max-width: 240px;
-    margin: 10px auto;
+    width: 120px;
+    margin: 10px 0 0;
+    height: 65px;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
   }
-
+  .image-grid h4 .fade-bottom {
+    position: absolute; 
+    bottom: 0; left: 0;
+    width: 100%; 
+    text-align: center; 
+    margin: 0;
+    padding: 8px 0; 
+    /* "transparent" only works here because == rgba(0,0,0,0) */ 
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, transparent),color-stop(1, white));
+    background-image: -webkit-linear-gradient(top, transparent, white);
+    background-image: -moz-linear-gradient(top, transparent, white);
+    background-image: -ms-linear-gradient(top, transparent, white);
+    background-image: -o-linear-gradient(top, transparent, white);
+  }
+  .col-right .content:not(.jspScrollable) .jspContainer {
+    width: 570px !important;
+  }
   /*
   * Project gallery
   */
