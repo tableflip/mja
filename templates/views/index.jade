@@ -10,7 +10,8 @@ block content
         p!= update.excerpt
 
 block sidebar
-  a.scrollUp(href='#')
+  .scrollUp
+    a(href='#')
   ul.list-unstyled.sidebar.clearfix
     each update in updates
       li
@@ -20,4 +21,5 @@ block sidebar
           .col-sm-6
             i= update.type + ':'
             h4= update.title
-  a.scrollDown(href='#')
+  .scrollDown
+    a(href='#')

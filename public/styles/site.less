@@ -41,21 +41,28 @@ body {
   background: url(../images/mja-logo.png) no-repeat;
   background-size: 100% auto;
 }
-
-.col-left {
-  overflow: hidden;
-  header {
-    min-height: 57px;
-  }
-  ul {
-    width: 100%;
-    height: 410px;
-    overflow: hidden;
-  }
+header {
+  height: 70px;
+  position: relative;
 }
-
+ul.sidebar {
+  width: 100%;
+  height: 425px;
+  overflow: hidden;
+}
 .col-left {
+  position: relative;
+}
+body::before {
+  content: '';
+  width: 0;
+  height: 540px;
+  top: 30px;
+  left: 330px;
+  position: absolute;
+  display: block;
   border-right: 2px solid rgb(181,0,0);
+  right: 0;
 }
 
 .mja-breadcrumb {
@@ -139,21 +146,24 @@ a:hover {
 * Home
 */
 
-a.scrollUp, a.scrollDown {
+.scrollUp, .scrollDown {
   display: block;
-  float: right;
-  width: 0;
-  height: 0;
-  margin: 15px;
+  height: 25px;
+  text-align: right;
+  a {
+    display: inline-block;
+    margin: 0 15px;
+    vertical-align: top;
+  }
 }
 
-a.scrollUp {
+.scrollUp a {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 10px solid #777;
 }
 
-a.scrollDown {
+.scrollDown a {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-top: 10px solid #777;
@@ -179,6 +189,11 @@ a.scrollDown {
 .home .content li {
   padding-bottom: 20px;
   margin-bottom: 20px;
+}
+
+.homepageupdate .content h3 {
+  color: #777;
+  font-weight: 200;
 }
 
 /*
@@ -211,15 +226,6 @@ a.scrollDown {
 /*
 * About
 */
-
-.about .col-left {
-  position: relative;
-}
-
-.about .col-right .content {
-  margin-left: 30px;
-  margin-top: 105px;
-}
 
 .about .bio {
   height: 400px;
@@ -273,10 +279,12 @@ a {
     height: 600px;
     background: white;
     overflow: hidden;
-    padding: 30px 0 30px 15px;
+    padding: 30px 0 30px 30px;
   }
-  .gallery .col-left, .about .col-left {
-    top: 20px;
+  .navbar-default {
+    position: absolute;
+    left: 320px;
+    width: 500px;
   }
   .col-left {
     height: 540px;
@@ -290,8 +298,18 @@ a {
     padding-left: 30px;
   }
   .col-right .content {
-    overflow-y: scroll;
+    width: 595px;
     height: 470px;
+  }
+  .about .col-right .content {
+    width: 580px;
+    height: auto;
+    margin-top: 97px;
+    padding-left: 35px;
+  }
+  .about .scroll-all {
+    height: 470px;
+    width: 944px;
   }
   .col-right .navbar-collapse {
     padding-left: 0;
@@ -299,11 +317,8 @@ a {
   .navbar-nav>li:first-child a {
     padding-left: 0;
   }
-  .col-left .navbar-collapse {
-    display: none !important;
-  }
   .brand {
-    width: 95%;
+    width: 270px;
   }
   .home .sidebar .col-sm-6 {
     float: right;
@@ -411,13 +426,15 @@ a {
     min-height: 57px;
     padding-right: 0;
   }
-
+  .navbar-default .navbar-collapse {
+    border: none;
+    border-right: 1px solid black;
+  }
   .navbar-collapse {
     clear: both;
     text-align: right;
     padding-right: 0;
     margin-bottom: 15px;
-    border-right: 1px solid black;
   }
 
   .navbar-nav {
