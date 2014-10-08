@@ -4,7 +4,7 @@ block content
   .row.content
     each category in categories
       .col-sm-4
-        h3= category.name
+        h4= category.name
         ul.list-unstyled
           each client in clients
             if client.category == category._id.toString()
