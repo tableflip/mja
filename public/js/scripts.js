@@ -17,11 +17,33 @@ jQuery(document).ready(function ($) {
     sidebar.animate({scrollTop: scrollTo})
   })
 
-  $('body:not(.about, .project, .contact) .col-right .content').jScrollPane({ verticalGutter: 20 })
-  $('.about .scroll-all').jScrollPane({ verticalGutter: 80 })
+  var jscroll = null
+
+  if (!detectMobile()) {
+    var jscrollEl = $('body:not(.about, .project, .contact) .col-right .content, .about .scroll-all').jScrollPane({ verticalGutter: 20 })
+    if (jscrollEl.size() > 0) jscroll = jscrollEl.data().jsp
+  }
+
+  $(window).resize(function () {
+    if (!detectMobile()) {
+      var jscrollEl = $('body:not(.about, .project, .contact) .col-right .content, .about .scroll-all').jScrollPane({ verticalGutter: 20 })
+      if (jscrollEl.size() > 0) jscroll = jscrollEl.data().jsp
+    } else {
+      if (jscroll) {
+        jscroll.destroy()
+        jscroll = null
+      }
+    }
+  })
 
   if ($('body').hasClass('project')) {
     Galleria.loadTheme('/js/lib/galleria/themes/classic/galleria.classic.min.js')
     Galleria.run('.galleria')
   }
 })
+
+function detectMobile () {
+  var mobileSniffer = $('#mobile-sniffer')
+  if (mobileSniffer.css('display') == 'block') return true
+  return false
+}

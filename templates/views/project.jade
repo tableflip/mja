@@ -14,8 +14,9 @@ block sidebar
       a(href='/') Home
       span= ' - '
       a(href='/projects') Projects
-      span= ' - ' + project.category.name
-      a(href='/projects') 
+      span= ' - '
+      a(href='/projects/' + project.category.slug)= project.category.name
+      a(href='/projects/' + project.category.slug +'/'+ project.slug) 
         em= ' - ' + project.name
     .sidebar-content
       != project.description
