@@ -3,8 +3,8 @@ extends ../layouts/default
 block content
   ul.list-unstyled.content
     li
-      if selectedUpdate.video
-        != selectedUpdate.video
+      if selectedUpdate.videoEmbed
+        != selectedUpdate.videoEmbed
       else
         .bg-hidden-mobile(style='background-image: url("'+ selectedUpdate._.image.fill(800, 600) + '");')
       h3= selectedUpdate.title
@@ -21,6 +21,9 @@ block sidebar
             i= update.type + ':'
             h4= update.title
           .col-xs-6
-            img(src= update._.image.fill(200, 200))
+            if update.image
+              img(src= update._.image.fill(350, 350))
+            else if update.videoThumbnail
+              img(src= update.videoThumbnail)
   .scrollDown
     a(href='#')

@@ -4,8 +4,8 @@ block content
   ul.list-unstyled.content
     each update in updates
       li
-        if update.video
-          != update.video
+        if update.videoEmbed
+          != update.videoEmbed
         else
           .bg-hidden-mobile(style='background-image: url("'+update._.image.fill(800, 600) + '");')
         a(href='updates/' + update.slug)
@@ -20,7 +20,10 @@ block sidebar
       li
         a(href='updates/' + update.slug)
           .col-sm-6
-            img(src= update._.image.fill(350, 350))
+            if update.image.url
+              img(src= update._.image.fill(350, 350))
+            else if update.videoThumbnail
+              img(src= update.videoThumbnail)
           .col-sm-6
             i= update.type + ':'
             h4= update.title
