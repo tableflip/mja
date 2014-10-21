@@ -2,7 +2,7 @@ extends ../layouts/default
 
 block content
   ul.list-unstyled.content
-    each update in updates
+    each update in updates.slice(0,9)
       li
         if update.videoEmbed
           != update.videoEmbed
