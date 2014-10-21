@@ -4,7 +4,10 @@ block content
   ul.list-unstyled.content
     each update in updates
       li
-        .bg-hidden-mobile(style='background-image: url("'+update._.image.fill(800, 600) + '");')
+        if update.video
+          != update.video
+        else
+          .bg-hidden-mobile(style='background-image: url("'+update._.image.fill(800, 600) + '");')
         a(href='updates/' + update.slug)
           h3= update.title
         p!= update.excerpt

@@ -3,9 +3,11 @@ extends ../layouts/default
 block content
   ul.list-unstyled.content
     li
-      .bg-hidden-mobile(style='background-image: url("'+ selectedUpdate._.image.fill(800, 600) + '");')
+      if selectedUpdate.video
+        != selectedUpdate.video
+      else
+        .bg-hidden-mobile(style='background-image: url("'+ selectedUpdate._.image.fill(800, 600) + '");')
       h3= selectedUpdate.title
-      p.excerpt!= selectedUpdate.excerpt
       p!= selectedUpdate.content
 
 block sidebar

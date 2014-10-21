@@ -32,7 +32,6 @@ body {
   position: relative;
   font-weight: 200;
 }
-
 .brand {
   display: block;
   height: 57px;
@@ -41,6 +40,16 @@ body {
   background: url(../images/mja-logo.png) no-repeat;
   background-size: 100% auto;
 }
+a, span, strong, p, h1, h2, h3, h4, h5 {
+  font-size: 14px;
+  color: #666;
+}
+a {
+  color: #666 !important;
+}
+a:hover {
+  color: black;
+}
 header {
   min-height: 80px;
   position: relative;
@@ -48,8 +57,9 @@ header {
 .col-left {
   position: relative;
 }
-.mja-breadcrumb {
+.mja-breadcrumb, .mja-breadcrumb a {
   margin-bottom: 40px;
+  font-size: 12px;
 }
 
 .navbar-nav > li {
@@ -62,6 +72,12 @@ header {
 
 .sidebar-content {
   padding-right: 10px;
+  p {
+    font-size: 12px;
+    a {
+      font-size: 12px;
+    }
+  }
 }
 
 .navbar {
@@ -107,20 +123,25 @@ footer {
   color: #DDD;
 
   a {
-    color: #DDD;    
+    font-size: inherit;
+    color: #DDD !important;
+    &:hover {
+      color: black !important;
+    }
   }
 }
 
 a {
   h1, h2, h3, h4, h5 {
-    color: #777;
+    color: #666;
     font-weight: 200;
   }
 }
 
 a:hover {
+  color: black;
   text-decoration: none;
-  h1, h2, h3, h4, h5 {
+  h1, h2, h3, h4, h5, * {
     color: black;
   }
 }
@@ -161,6 +182,9 @@ a:hover {
 }
 
 .sidebar {
+  & > h4 {
+    margin-top: 0;
+  }
   li {
     height: 100px;
     margin-bottom: 30px;
@@ -180,9 +204,17 @@ a:hover {
   padding-bottom: 20px;
   margin-bottom: 20px;
 }
-
+.home .content iframe, .homepageupdate .content iframe {
+  width: 100%;
+}
+span[style] {
+  font-family: inherit !important;
+  line-height: inherit !important;
+  text-align: inherit !important;
+  font-size: inherit !important;
+}
 .homepageupdate .content h3 {
-  color: #777;
+  color: #666;
   font-weight: 200;
 }
 
@@ -210,7 +242,7 @@ a:hover {
 
 .clients .content h4 {
   margin-top: 0;
-  height: 90px;
+  height: 80px;
 }
 
 /*
@@ -249,12 +281,12 @@ a {
   }
   body.container-fluid {
     top: 50%;
-    margin-top: -300px;
+    margin-top: -340px;
     left: 50%;
     margin-left: -480px;
     position: absolute;
     width: 960px;
-    height: 600px;
+    height: 680px;
     background: white;
     overflow: hidden;
     padding: 30px 0 30px 30px;
@@ -262,7 +294,7 @@ a {
   body::before {
     content: '';
     width: 0;
-    height: 540px;
+    height: 620px;
     top: 30px;
     left: 330px;
     position: absolute;
@@ -276,11 +308,11 @@ a {
     width: 500px;
   }
   .col-left {
-    height: 540px;
+    height: 620px;
   }
   ul.sidebar {
     width: 100%;
-    height: 440px;
+    height: 520px;
     overflow: hidden;
   }
   .col-right {
@@ -293,7 +325,7 @@ a {
   }
   .col-right .content {
     width: 595px;
-    height: 460px;
+    height: 540px;
   }
   .about .col-right .content {
     width: 580px;
@@ -302,7 +334,7 @@ a {
     padding-left: 35px;
   }
   .about .scroll-all {
-    height: 470px;
+    height: 550px;
     width: 944px;
   }
   .col-right .navbar-collapse {
@@ -332,7 +364,6 @@ a {
     width: 120px;
     margin: 10px 0 0;
     height: 65px;
-    font-size: 16px;
     position: relative;
     overflow: hidden;
   }
@@ -420,13 +451,9 @@ a {
     }
     .sidebar {
       overflow: visible;
-      font-size: 16px;
       i {
         margin-top: 5px;
         display: inline-block;
-      }
-      h4 {
-        font-size: 22px;
       }
       li {
         width: 100%;

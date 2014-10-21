@@ -30,6 +30,10 @@ HomepageUpdate.add({
   image: {
     type: Types.CloudinaryImage
   },
+  video: {
+    label: 'Youtube/Vimeo embed code',
+    type: String
+  },
   content: {
     type: Types.Html,
     wysiwyg: true,
