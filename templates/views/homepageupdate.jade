@@ -21,7 +21,7 @@ block sidebar
             i= update.type + ':'
             h4= update.title
           .col-xs-6
-            if update.image
+            if update.image.url
               img(src= update._.image.fill(350, 350))
             else if update.videoThumbnail
               img(src= update.videoThumbnail)

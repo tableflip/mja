@@ -1,5 +1,6 @@
 var keystone = require('keystone')
 var embedVideo = require('embed-video')
+var xml2js = require('xml2js').parseString
 var request = require('request')
 var Types = keystone.Field.Types
 
@@ -68,17 +69,21 @@ HomepageUpdate.schema.pre('save', function (next) {
     update.videoEmbed = embedVideo(update.video)
     
     if (update.video.match(vimeoRegex) != null) {
-      videoId = update.video.match(vimeoRegex)[2]
+      videoId = update.video.match(vimeoRegex)[3]
+      console.log(videoId)
       var vimeoDataUrl = 'http://vimeo.com/api/v2/video/'+ videoId +'.xml'
       
       request({
-        url: vimeoDataUrl,
-        json: true
+        uri: vimeoDataUrl
       }, function (err, message, response) {
         if (err) console.error(err)
         if (!response) return next()
-        update.videoThumbnail = response['thumbnail_large']
-        next()
+
+        xml2js(response, function (err, result) {
+          if (err) console.error(err)
+          update.videoThumbnail = result.videos.video[0].thumbnail_large
+          next()
+        })
       })
 
     } else if (update.video.match(youtubeRegex) != null) {
@@ -88,6 +93,8 @@ HomepageUpdate.schema.pre('save', function (next) {
     } else {
       console.error('Failed to get a thumbnail for video: ' + update.video)
     }
+  } else {
+    next()
   }
 })
 
