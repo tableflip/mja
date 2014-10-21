@@ -19,6 +19,9 @@ Project.add({
     ref: 'ProjectCategory',
     initial: true
   },
+  video: {
+    type: String
+  },
   images: {
     type: Types.CloudinaryImages
   },

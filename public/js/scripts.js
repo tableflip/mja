@@ -38,7 +38,7 @@ jQuery(document).ready(function ($) {
 
   if ($('body').hasClass('project')) {
     Galleria.loadTheme('/js/lib/galleria/themes/classic/galleria.classic.min.js')
-    Galleria.run('.galleria')
+    Galleria.run('.galleria', { showCounter: false })
   }
 })
 
