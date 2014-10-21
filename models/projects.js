@@ -20,7 +20,8 @@ Project.add({
     initial: true
   },
   video: {
-    type: String
+    type: String,
+    label: 'Youtube/Vimeo URL'
   },
   images: {
     type: Types.CloudinaryImages

@@ -81,7 +81,7 @@ HomepageUpdate.schema.pre('save', function (next) {
 
         xml2js(response, function (err, result) {
           if (err) console.error(err)
-          update.videoThumbnail = result.videos.video[0].thumbnail_large
+          update.videoThumbnail = result.videos.video[0]['thumbnail_large']
           next()
         })
       })
