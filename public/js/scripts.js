@@ -40,7 +40,51 @@ jQuery(document).ready(function ($) {
     Galleria.loadTheme('/js/lib/galleria/themes/classic/galleria.classic.min.js')
     Galleria.run('.galleria', { showCounter: false })
   }
+  
+  splashScreen()
 })
+
+/* 
+  If #splash is present and the user hasn't seen it already this session, play it.
+  If no splash is present, record that they've seen the splash already, so we don't show it half way through a session.
+ */
+function splashScreen () {
+  var sessionStorage = window.sessionStorage || { getItem: function(){}, setItem: function () {}}
+  
+  var $splash = $('#splash')
+  
+  if (sessionStorage && sessionStorage.getItem('splashed')) {
+    $splash.hide();
+    return
+  }
+  
+  // Ok do a splash if you must...
+  sessionStorage.setItem('splashed', true)
+
+  if (!$splash.length) return // nothing to do
+    
+  Galleria.configure({
+    imageCrop: true,
+    transition: 'fade',
+    thumbnails: false,
+    autoplay: 100,
+    transitionSpeed: 2500
+  })
+  
+  Galleria.loadTheme('/js/lib/galleria/themes/classic/galleria.classic.min.js')
+  
+  Galleria.on('image', function (evt) {
+    if ((evt.index + 1) !== this.getDataLength()) return
+
+    // we're at the end
+    this.pause()
+    $splash.addClass('splash-end')
+    setTimeout(function () {
+      $splash.fadeOut(1000)
+    }, 2500)
+  })
+  Galleria.run('.galleria', { showCounter: false })
+}
 
 function detectMobile () {
   var mobileSniffer = jQuery('#mobile-sniffer')

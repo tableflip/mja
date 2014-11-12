@@ -37,9 +37,7 @@ exports = module.exports = function(req, res) {
 
     res.locals.page = results.page
     res.locals.affiliations = results.affiliations
-
-    console.log(res.locals)
-
+    
     view.render('affiliations')
   })
 }

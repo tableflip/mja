@@ -1,5 +1,13 @@
 extends ../layouts/default
 
+block splash
+  #splash
+    div.galleria
+      img(src="/images/splash/lassco.jpg")
+      img(src="/images/splash/stairs.jpg")
+      img(src="/images/splash/fireplace.jpg")
+      img(src="/images/splash/team.jpg")
+
 block content
   ul.list-unstyled.content
     each update in updates.slice(0,9)
@@ -11,6 +19,7 @@ block content
         a(href='updates/' + update.slug)
           h3= update.title
         p!= update.excerpt
+
 
 block sidebar
   .scrollUp
@@ -29,3 +38,4 @@ block sidebar
             h4= update.title
   .scrollDown
     a(href='#')
+

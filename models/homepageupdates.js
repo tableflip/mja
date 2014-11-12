@@ -70,7 +70,6 @@ HomepageUpdate.schema.pre('save', function (next) {
     
     if (update.video.match(vimeoRegex) != null) {
       videoId = update.video.match(vimeoRegex)[3]
-      console.log(videoId)
       var vimeoDataUrl = 'http://vimeo.com/api/v2/video/'+ videoId +'.xml'
       
       request({

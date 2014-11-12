@@ -13,7 +13,6 @@ exports = module.exports = function(req, res) {
     if (err) console.error(err)
 
     // Render the view
-  console.log(page)
     locals.page = page
     locals.bodyClass = 'contact'
     view.render('contact')
