@@ -59,6 +59,7 @@
     right: 10px;
     z-index: 2;
     display: none;
+    visibility: hidden;
     background: url(classic-loader.gif) no-repeat 2px 2px;
 }
 .galleria-info {

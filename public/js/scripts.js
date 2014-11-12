@@ -83,7 +83,20 @@ function splashScreen () {
       $splash.fadeOut(1000)
     }, 2500)
   })
-  Galleria.run('.galleria', { showCounter: false })
+
+  var galleryData = [
+    { image: '/images/splash/lassco.jpg' },
+    { image: '/images/splash/stairs.jpg' },
+    { image: '/images/splash/fireplace.jpg' },
+    { image: '/images/splash/team.jpg' }
+  ]
+
+  Galleria.run('.galleria', {
+    showCounter: false,
+    dataSource: galleryData,
+    showImagenav: false,
+    showInfo: false
+  })
 }
 
 function detectMobile () {
