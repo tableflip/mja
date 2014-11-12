@@ -1,0 +1,25 @@
+extends ../layouts/default
+
+block content
+  .content
+    each affil in affiliations
+      .affil.row
+        .col-xs-3
+          - src = affil.image.url ? affil._.image.fill(400, 400) : 'http://placehold.it/400x400'
+          img.img-responsive(src=src)
+        .col-xs-9
+          h4
+            a(href=affil.link)= affil.name
+          p!= affil.description
+
+
+block sidebar
+  .sidebar
+    h4 About
+    .mja-breadcrumb
+      a(href='/') Home
+      span= ' - '
+      a(href='/profile') Profile
+      em  - Affiliations and Memberships
+    .sidebar-content
+      != page.content
