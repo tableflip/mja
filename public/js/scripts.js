@@ -53,13 +53,15 @@ function splashScreen () {
   
   var $splash = $('#splash')
   
-  if ((sessionStorage && sessionStorage.getItem('splashed')) || detectMobile()) {
+  if (sessionStorage && sessionStorage.getItem('splashed')) {
     $splash.hide();
     return
   }
-  
+
   // Ok do a splash if you must...
   sessionStorage.setItem('splashed', true)
+
+  if (detectMobile()) return
 
   if (!$splash.length) return // nothing to do
     
