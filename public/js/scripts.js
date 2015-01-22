@@ -20,13 +20,13 @@ jQuery(document).ready(function ($) {
   var jscroll = null
 
   if (!detectMobile()) {
-    var jscrollEl = $('body:not(.about, .project, .contact) .col-right .content, .about .scroll-all').jScrollPane({ verticalGutter: 20 })
+    var jscrollEl = $('body:not(.about, .project, .contact, .projectcategories) .col-right .content, .about .scroll-all').jScrollPane({ verticalGutter: 20 })
     if (jscrollEl.size() > 0) jscroll = jscrollEl.data().jsp
   }
 
   $(window).resize(function () {
     if (!detectMobile()) {
-      var jscrollEl = $('body:not(.about, .project, .contact) .col-right .content, .about .scroll-all').jScrollPane({ verticalGutter: 20 })
+      var jscrollEl = $('body:not(.about, .project, .contact, .projectcategories) .col-right .content, .about .scroll-all').jScrollPane({ verticalGutter: 20 })
       if (jscrollEl.size() > 0) jscroll = jscrollEl.data().jsp
     } else {
       if (jscroll) {
