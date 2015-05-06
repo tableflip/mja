@@ -2,13 +2,15 @@ extends ../layouts/default
 
 block content
   .project
-    .galleria
-      if project.video
-        a(href=project.video)
-          span.video
-      each image in project.images
-        a(href=image.fill(300, 200))
-        img(src=image.fit(1200, 800))
+    .gallery-container
+      a.fullscreen-gallery(href='#')
+      .galleria
+        if project.video
+          a(href=project.video)
+            span.video
+        each image in project.images
+          a(href=image.fill(300, 200))
+          img(src=image.fit(1200, 800))
 
 block sidebar
   .project-category-blurb
