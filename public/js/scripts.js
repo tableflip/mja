@@ -53,10 +53,10 @@ function splashScreen () {
   
   var $splash = $('#splash')
   
-  if (sessionStorage && sessionStorage.getItem('splashed')) {
-    $splash.hide();
-    return
-  }
+  // if (sessionStorage && sessionStorage.getItem('splashed')) {
+  //   $splash.hide();
+  //   return
+  // }
 
   // Ok do a splash if you must...
   sessionStorage.setItem('splashed', true)
@@ -64,7 +64,12 @@ function splashScreen () {
   if (detectMobile()) return
 
   if (!$splash.length) return // nothing to do
-    
+  
+  $('a.hide-splash').on('click', function (e) {
+    e.preventDefault()
+    $splash.fadeOut(500)
+  })
+
   Galleria.configure({
     imageCrop: true,
     transition: 'fade',
@@ -76,10 +81,11 @@ function splashScreen () {
   Galleria.loadTheme('/js/lib/galleria/themes/classic/galleria.classic.min.js')
   
   Galleria.on('image', function (evt) {
-    if ((evt.index + 1) !== this.getDataLength()) return
+    var splashGallery = this
+    if ((evt.index + 1) !== splashGallery.getDataLength()) return
 
     // we're at the end
-    this.pause()
+    splashGallery.pause()
     $splash.addClass('splash-end')
     setTimeout(function () {
       $splash.fadeOut(1000)
