@@ -30,6 +30,7 @@ exports = module.exports = function (req, res) {
 
           Project.model.find()
           .where({ category: category._id })
+          .sort({ 'sortOrder': 1 })
           .exec(cb)
         }
       },
