@@ -29,7 +29,6 @@
 * Site wide
 */
 body {
-  position: relative;
   font-weight: 200;
 }
 
@@ -41,7 +40,7 @@ body {
   margin:-30px;
   background:#EEE;
   z-index: 9000;
-  
+
   .galleria {
     width: 100%;
     height: 680px;
@@ -229,7 +228,7 @@ a:hover {
       padding-left: 0;
     }
   }
-  
+
   img {
     max-width: 100%;
   }
@@ -341,18 +340,27 @@ a {
     background-color: #EEE;
     height: 100%;
     overflow: hidden;
+    text-align: center;
+  }
+  html::before{
+    display:inline-block;
+    content:'';
+    height:100%;
+    vertical-align:middle;
   }
   body.container-fluid {
-    top: 50%;
-    margin-top: -340px;
-    left: 50%;
-    margin-left: -480px;
-    position: absolute;
+    position: relative;
+    display:inline-block;
+    vertical-align:middle;
+    text-align: left;
     width: 960px;
     height: 680px;
     background: white;
     overflow: hidden;
     padding: 30px 0 30px 30px;
+    > .row {
+      height: calc(~"100% - 110px");
+    }
   }
   body::before {
     content: '';
@@ -371,24 +379,23 @@ a {
     width: 500px;
   }
   .col-left {
-    height: 620px;
+    height:100%;
   }
   ul.sidebar {
     width: 100%;
-    height: 520px;
+    height: 100%;
     overflow: hidden;
   }
   .col-right {
     position: static;
     padding-right: 0;
     min-height: 100%;
-  }
-  .col-right {
+    height:100%;
     padding-left: 30px;
   }
   .col-right .content {
     width: 595px;
-    height: 540px;
+    height: 100%;
   }
   .about .col-right .content {
     width: 580px;
@@ -434,13 +441,13 @@ a {
     overflow: hidden;
   }
   .image-grid h4 .fade-bottom {
-    position: absolute; 
+    position: absolute;
     bottom: 0; left: 0;
-    width: 100%; 
-    text-align: center; 
+    width: 100%;
+    text-align: center;
     margin: 0;
-    padding: 8px 0; 
-    /* "transparent" only works here because == rgba(0,0,0,0) */ 
+    padding: 8px 0;
+    /* "transparent" only works here because == rgba(0,0,0,0) */
     background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
@@ -622,5 +629,21 @@ a {
 @media all and (max-width: 500px) {
   button.navbar-toggle {
     margin-top: 0;
+  }
+}
+@media (min-width: @screen-lg-min) {
+  body.container-fluid {
+    // margin-top: -390px;
+    width: 1100px;
+    height: 780px;
+  }
+  body.container-fluid::before {
+    left: 378px;
+  }
+  .navbar-default {
+    left: 366px;
+  }
+  .col-right .content {
+    width: 686px;
   }
 }
