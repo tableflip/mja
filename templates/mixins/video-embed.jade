@@ -1,0 +1,8 @@
+mixin video-embed(update)
+  if !update
+    // do nothing
+  else if update.videoEmbed
+    .embed-container
+      != update.videoEmbed
+  else
+    .bg-hidden-mobile(style='background-image: url("'+ update._.image.fill(800, 600) + '");')

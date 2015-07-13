@@ -1,12 +1,10 @@
 extends ../layouts/default
+include ../mixins/video-embed
 
 block content
   ul.list-unstyled.content
     li
-      if selectedUpdate.videoEmbed
-        != selectedUpdate.videoEmbed
-      else
-        .bg-hidden-mobile(style='background-image: url("'+ selectedUpdate._.image.fill(800, 600) + '");')
+      +video-embed(selectedUpdate)
       h3= selectedUpdate.title
       p!= selectedUpdate.content
 
