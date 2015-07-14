@@ -25,11 +25,14 @@
 // Add your own site style includes here
 @import "site/layout.less";
 
+// http://embedresponsively.com/ - Drop when we update bootstrapt to >= 3.2
+@import "site/embed.less";
+
+
 /*
 * Site wide
 */
 body {
-  position: relative;
   font-weight: 200;
 }
 
@@ -41,7 +44,7 @@ body {
   margin:-30px;
   background:#EEE;
   z-index: 9000;
-  
+
   .galleria {
     width: 100%;
     height: 680px;
@@ -143,7 +146,7 @@ a:focus,
 }
 
 .bg-hidden-mobile {
-  height: 350px;
+  height: 346px;
   background-size: 100% auto;
   background-color: #EEE;
   background-repeat: no-repeat;
@@ -229,7 +232,7 @@ a:hover {
       padding-left: 0;
     }
   }
-  
+
   img {
     max-width: 100%;
   }
@@ -265,7 +268,7 @@ span[style] {
     min-height: 600px;
     .galleria {
       max-width: 580px;
-      height: 80%;
+      height: 90%;
       min-height: 480px;
     }
   }
@@ -341,18 +344,29 @@ a {
     background-color: #EEE;
     height: 100%;
     overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+  }
+  html::before{
+    display:inline-block;
+    content:'';
+    height:100%;
+    vertical-align:middle;
   }
   body.container-fluid {
-    top: 50%;
-    margin-top: -340px;
-    left: 50%;
-    margin-left: -480px;
-    position: absolute;
+    position: relative;
+    display:inline-block;
+    vertical-align:middle;
+    text-align: left;
+    white-space:normal;
     width: 960px;
     height: 680px;
     background: white;
     overflow: hidden;
     padding: 30px 0 30px 30px;
+    > .row {
+      height: calc(~"100% - 110px");
+    }
   }
   body::before {
     content: '';
@@ -371,24 +385,23 @@ a {
     width: 500px;
   }
   .col-left {
-    height: 620px;
+    height:100%;
   }
   ul.sidebar {
     width: 100%;
-    height: 520px;
+    height: 100%;
     overflow: hidden;
   }
   .col-right {
     position: static;
     padding-right: 0;
     min-height: 100%;
-  }
-  .col-right {
+    height:100%;
     padding-left: 30px;
   }
   .col-right .content {
     width: 595px;
-    height: 540px;
+    height: 100%;
   }
   .about .col-right .content {
     width: 580px;
@@ -418,9 +431,6 @@ a {
   .home .content img, .homepageupdate .content img {
     min-height: 400px;
   }
-  .home .content iframe, .homepageupdate .content iframe {
-    height: 350px;
-  }
   .image-grid ul li .grid-image {
     width: 115px;
 
@@ -434,20 +444,20 @@ a {
     overflow: hidden;
   }
   .image-grid h4 .fade-bottom {
-    position: absolute; 
+    position: absolute;
     bottom: 0; left: 0;
-    width: 100%; 
-    text-align: center; 
+    width: 100%;
+    text-align: center;
     margin: 0;
-    padding: 8px 0; 
-    /* "transparent" only works here because == rgba(0,0,0,0) */ 
+    padding: 8px 0;
+    /* "transparent" only works here because == rgba(0,0,0,0) */
     background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
   }
   .col-right .content:not(.jspScrollable) .jspContainer {
     width: 570px !important;
@@ -622,5 +632,38 @@ a {
 @media all and (max-width: 500px) {
   button.navbar-toggle {
     margin-top: 0;
+  }
+}
+@media (min-width: @screen-lg-min) {
+  body.container-fluid {
+    width: 1160px;
+  }
+  .col-left {
+    width: 316px;
+  }
+  .col-right {
+    width: 840px;
+    padding-right: 10px;
+  }
+  .col-right .content:not(.jspScrollable) .jspContainer{
+    width:770px !important;
+  }
+  .col-right .content{
+    width: auto;
+    height:540px;
+  }
+  .image-grid ul li .grid-image {
+    width: 152px;
+    background-position:left center;
+  }
+  .project .col-right .project {
+    margin-top:-40px;
+  }
+  .project .col-right .project .galleria {
+    height:100%;
+    max-width: none;
+  }
+  .bg-hidden-mobile {
+    height:390px;
   }
 }

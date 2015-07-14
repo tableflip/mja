@@ -1,4 +1,5 @@
 extends ../layouts/default
+include ../mixins/video-embed
 
 block splash
   #splash
@@ -8,10 +9,7 @@ block content
   ul.list-unstyled.content
     each update in updates.slice(0,9)
       li
-        if update.videoEmbed
-          != update.videoEmbed
-        else
-          .bg-hidden-mobile(style='background-image: url("'+update._.image.fill(800, 600) + '");')
+        +video-embed(update)
         a(href='updates/' + update.slug)
           h3= update.title
         p!= update.excerpt
@@ -26,7 +24,7 @@ block sidebar
         a(href='updates/' + update.slug)
           .col-sm-6
             if update.image.url
-              img(src= update._.image.fill(350, 350))
+              img(src= update._.image.fill(400, 400))
             else if update.videoThumbnail
               img(src= update.videoThumbnail)
           .col-sm-6
