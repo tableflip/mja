@@ -10,8 +10,8 @@ block content
     each update in updates.slice(0,9)
       li
         +video-embed(update)
-        a(href='updates/' + update.slug)
-          h3= update.title
+        h1
+          a(href='updates/' + update.slug)= update.title
         p!= update.excerpt
 
 
