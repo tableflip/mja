@@ -37,6 +37,14 @@ jQuery(document).ready(function ($) {
   })
 
   if ($('body').hasClass('project')) {
+    Galleria.ready(function () {
+      var gallery = this
+      $('.galleria-container').append('<a class="fullscreen-gallery" href="#"></a>')
+      $('.fullscreen-gallery').on('click', function (e) {
+        e.preventDefault()
+        gallery.toggleFullscreen()
+      })
+    })
     Galleria.loadTheme('/js/lib/galleria/themes/classic/galleria.classic.min.js')
     Galleria.run('.galleria', { showCounter: false })
   }
