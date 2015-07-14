@@ -12,10 +12,8 @@ block content
 
 block sidebar
   .project-category-blurb
-    h4.capitalize= project.name
+    h1.capitalize= project.name
     .mja-breadcrumb
-      a(href='/') Home
-      span= ' - '
       a(href='/projects') Projects
       span= ' - '
       a(href='/projects/' + project.category.slug)= project.category.name
