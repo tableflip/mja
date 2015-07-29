@@ -4,47 +4,41 @@ var Project = keystone.list('Project')
 var ProjectCategory = keystone.list('ProjectCategory')
 
 exports = module.exports = function (req, res) {
-  
+
   var locals = res.locals
   var view = new keystone.View(req, res)
-  
-  locals.bodyClass = 'projects'
-
   var category = req.params.category
 
   async.waterfall(
     [
-      function (cb) {
+      function findCategory (cb) {
         ProjectCategory.model.findOne()
         .where({ slug: category })
         .exec(function (err, category) {
           cb(err, category)
         })
       },
-
-      function (category, cb) {
+      function findProjectsForCategory (category, cb) {
         if (category === null) {
           cb(null, null)
         } else {
           locals.category = category
-
           Project.model.find()
           .where({ category: category._id })
           .sort({ 'sortOrder': 1 })
           .exec(cb)
         }
-      },
-      
+      }
     ],
-
-    function (err, projects) {
+    function render (err, projects) {
       if (err) {
         console.error(err)
         return view.render('errors/500')
       }
       if (projects === null) return view.render('errors/404')
-
+      locals.bodyClass = 'projects'
       locals.projects = projects
       view.render('projectcategory')
-    })
+    }
+  )
 }
