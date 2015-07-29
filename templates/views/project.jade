@@ -21,3 +21,7 @@ block sidebar
         em= ' - ' + project.name
     .sidebar-content
       != project.description
+      p
+        a(href='/projects/' + next.category.slug + '/' + next.slug) Next: 
+          strong #{next.name}
+          |  →
