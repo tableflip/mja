@@ -74,7 +74,7 @@ function findNextProject (project, cb) {
       category: project.category._id,
       sortOrder: { $gt: project.sortOrder }
     })
-    .sort('+sortOrder')
+    .sort('sortOrder')
     .select('name slug sortOrder category')
     .populate('category')
     .exec(function (err, res) {
