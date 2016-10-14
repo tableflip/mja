@@ -1,0 +1,28 @@
+- name: Add MongoDB ppa key
+  become: yes
+  apt_key: >
+    keyserver=hkp://keyserver.ubuntu.com:80
+    id=EA312927
+    state=present
+
+- name: Add MongoDB sources list
+  become: yes
+  lineinfile: >
+    line="deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse"
+    dest=/etc/apt/sources.list.d/mongodb-org-3.2.list
+    state=present
+    create=yes
+
+- name: Install MongoDB
+  become: yes
+  apt: name=mongodb-org state=latest update_cache=yes
+
+- name: Copy core MongoDB configs
+  become: yes
+  copy: src=mongod.conf dest=/etc/mongod.conf mode=0644 force=yes
+  notify:
+    - Restart MongoDB
+
+- name: Ensure MongoDB is running
+  become: yes
+  service: name=mongod state=started enabled=yes

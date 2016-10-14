@@ -1,0 +1,16 @@
+
+- hosts: app
+  roles:
+    - apt-update
+    - bootstrap
+    - ufw
+    - node
+    - nginx
+    - letsencrypt
+    - mongodb
+    - mongodump
+    - murrayjohn
+
+- hosts: app:!dev
+  roles:
+    - murrayjohn-https

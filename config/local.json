@@ -1,0 +1,8 @@
+{
+  "mongo": "mongodb://murrayjohn:9ROp9wjWI8NS0Ei@kahana.mongohq.com:10015/murrayjohn",
+  "cloudinary config": {
+    "cloud_name": "murrayjohnarchitects",
+    "api_key": "859934432357486",
+    "api_secret": "3OvxMga5ehhUVssI5dp0iRQ-VsY"
+  }
+}
